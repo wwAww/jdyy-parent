@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+    <reference id="jdyyDictBeanService" interface="com.kalix.jdyy.system.dict.api.biz.IJdyyDictBeanService"/>
+    <camelContext id="jdyyDictCamel" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <restConfiguration component="servlet" bindingMode="json">
+            <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
+        </restConfiguration>
+
+        <rest path="/jdyy/dicts" consumes="application/json;charset=utf-8" produces="application/json">
+            <description>audit rest service</description>
+
+            <get id="route-getAllJdyyDict" outType="com.kalix.framework.core.api.persistence.JsonData">
+                <description>Find all JdyyDict</description>
+                <to uri="bean:jdyyDictBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
+            </get>
+
+            <post id="route-addJdyyDict" type="com.kalix.jdyy.system.dict.entities.JdyyDictBean"
+                  outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Create a JdyyDict</description>
+                <to uri="bean:jdyyDictBeanService?method=saveEntity"/>
+            </post>
+        </rest>
+        <rest path="/jdyy/dicts/{id}" consumes="application/json;charset=utf-8" produces="application/json">
+
+            <get id="route-getJdyyDict" type="com.kalix.jdyy.system.dict.entities.JdyyDictBean">
+                <description>Find JdyyDict by id</description>
+                <to uri="bean:jdyyDictBeanService?method=getEntity(${header.id})"/>
+            </get>
+
+            <put id="route-updateJdyyDict" type="com.kalix.jdyy.system.dict.entities.JdyyDictBean"
+                 outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Updates a JdyyDict</description>
+                <to uri="bean:jdyyDictBeanService?method=updateEntity"/>
+            </put>
+
+            <delete id="route-deleteJdyyDict"
+                    outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Delete a JdyyDict</description>
+                <to uri="bean:jdyyDictBeanService?method=deleteEntity(${header.id})"/>
+            </delete>
+        </rest>
+        <rest path="/jdyy/dicts/cache/list" consumes="application/json;charset=utf-8"
+              produces="application/json;charset=utf-8">
+            <get id="route-getAllJdyyDictInCache">
+                <description>Find all dicts</description>
+                <to uri="bean:jdyyDictBeanService?method=getAllEntity()"/>
+            </get>
+        </rest>
+        <rest path="/jdyy/dicts/types/list" consumes="application/json;charset=utf-8"
+              produces="application/json;charset=utf-8">
+            <get id="route-getAllJdyyDictTypes">
+                <description>Find all dicts</description>
+                <to uri="bean:jdyyDictBeanService?method=getDictTypes(${header.query})"/>
+            </get>
+        </rest>
+
+    </camelContext>
+</blueprint>

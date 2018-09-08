@@ -6,24 +6,17 @@
 
     <parent>
         <groupId>com.kalix.jdyy</groupId>
-        <artifactId>jdyy-parent</artifactId>
+        <artifactId>dict-parent</artifactId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.kalix.jdyy</groupId>
-    <artifactId>system-parent</artifactId>
-    <name>Kalix Jdyy System</name>
-    <dependencies>
-        <dependency>
-            <groupId>com.kalix.framework.core</groupId>
-            <artifactId>framework-core-impl</artifactId>
-        </dependency>
-    </dependencies>
-    <packaging>pom</packaging>
+    <artifactId>jdyy-system-dict-rest</artifactId>
+    <name>Kalix Jdyy Dict REST</name>
+    <packaging>bundle</packaging>
 
-    <modules>
-        <module>dict-parent</module>
-    </modules>
-
+    <properties>
+        <bundle.symbolicName>com.kalix.jdyy.system.dict.rest</bundle.symbolicName>
+    </properties>
     
 </project>
