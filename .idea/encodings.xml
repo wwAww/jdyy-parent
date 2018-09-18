@@ -11,5 +11,8 @@
     <file url="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-entities" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/system-parent/img-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/system-parent/img-parent/jdyy-system-img-entities" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

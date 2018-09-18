@@ -12,19 +12,8 @@
         <module name="jdyy-system-dict-dao" />
         <module name="jdyy-system-dict-entities" />
         <module name="jdyy-system-dict-rest" />
+        <module name="jdyy-system-img-entities" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="core-parent" target="1.8" />
-      <module name="dict-parent" target="1.8" />
-      <module name="jdyy-core-etc" target="1.8" />
-      <module name="jdyy-parent" target="1.8" />
-      <module name="jdyy-system-dict-api" target="1.8" />
-      <module name="jdyy-system-dict-biz" target="1.8" />
-      <module name="jdyy-system-dict-dao" target="1.8" />
-      <module name="jdyy-system-dict-entities" target="1.8" />
-      <module name="jdyy-system-dict-rest" target="1.8" />
-      <module name="system-parent" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/core-parent/core-parent.iml" filepath="$PROJECT_DIR$/core-parent/core-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/system-parent/dict-parent/dict-parent.iml" filepath="$PROJECT_DIR$/system-parent/dict-parent/dict-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/core-parent/jdyy-core-etc/jdyy-core-etc.iml" filepath="$PROJECT_DIR$/core-parent/jdyy-core-etc/jdyy-core-etc.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdyy-parent.iml" filepath="$PROJECT_DIR$/jdyy-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-api/jdyy-system-dict-api.iml" filepath="$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-api/jdyy-system-dict-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-biz/jdyy-system-dict-biz.iml" filepath="$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-biz/jdyy-system-dict-biz.iml" />
-      <module fileurl="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-dao/jdyy-system-dict-dao.iml" filepath="$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-dao/jdyy-system-dict-dao.iml" />
-      <module fileurl="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-entities/jdyy-system-dict-entities.iml" filepath="$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-entities/jdyy-system-dict-entities.iml" />
-      <module fileurl="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-rest/jdyy-system-dict-rest.iml" filepath="$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-rest/jdyy-system-dict-rest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/system-parent/system-parent.iml" filepath="$PROJECT_DIR$/system-parent/system-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-api/src/main/main.iml" filepath="$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-api/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-biz/src/main/main1.iml" filepath="$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-biz/src/main/main1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/core-parent/jdyy-core-etc/src/main/main2.iml" filepath="$PROJECT_DIR$/core-parent/jdyy-core-etc/src/main/main2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-dao/src/main/main3.iml" filepath="$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-dao/src/main/main3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-rest/src/main/main4.iml" filepath="$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-rest/src/main/main4.iml" />
+      <module fileurl="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-entities/src/main/main5.iml" filepath="$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-entities/src/main/main5.iml" />
     </modules>
   </component>
 </project>
