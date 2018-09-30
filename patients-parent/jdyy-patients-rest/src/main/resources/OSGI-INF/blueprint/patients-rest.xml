@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+    <reference id="jdyyPatientsBeanService" interface="com.kalix.jdyy.patients.api.biz.IJdyyPatientsBeanService"/>
+    <camelContext id="jdyyPatientsCamel" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <restConfiguration component="servlet" bindingMode="json">
+            <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
+        </restConfiguration>
+
+        <rest path="/jdyy/patientss" consumes="application/json;charset=utf-8" produces="application/json">
+            <description>audit rest service</description>
+
+            <get id="route-getAllJdyyPatients" outType="com.kalix.framework.core.api.persistence.JsonData">
+                <description>Find all JdyyPatients</description>
+                <to uri="bean:jdyyPatientsBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
+            </get>
+
+            <post id="route-addJdyyPatients" type="com.kalix.jdyy.patients.entities.JdyyPatientsBean"
+                  outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Create a JdyyPatients</description>
+                <to uri="bean:jdyyPatientsBeanService?method=saveEntity"/>
+            </post>
+        </rest>
+        <rest path="/jdyy/patientss/{id}" consumes="application/json;charset=utf-8" produces="application/json">
+
+            <get id="route-getJdyyPatients" type="com.kalix.jdyy.patients.entities.JdyyPatientsBean">
+                <description>Find JdyyPatients by id</description>
+                <to uri="bean:jdyyPatientsBeanService?method=getEntity(${header.id})"/>
+            </get>
+
+            <put id="route-updateJdyyPatients" type="com.kalix.jdyy.patients.entities.JdyyPatientsBean"
+                 outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Updates a JdyyPatients</description>
+                <to uri="bean:jdyyPatientsBeanService?method=updateEntity"/>
+            </put>
+
+            <delete id="route-deleteJdyyPatients"
+                    outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Delete a JdyyPatients</description>
+                <to uri="bean:jdyyPatientsBeanService?method=deleteEntity(${header.id})"/>
+            </delete>
+        </rest>
+        <!--<rest path="/jdyy/patientss/cache/list" consumes="application/json;charset=utf-8"
+              produces="application/json;charset=utf-8">
+            <get id="route-getAllJdyyPatientsInCache">
+                <description>Find all patientss</description>
+                <to uri="bean:jdyyPatientsBeanService?method=getAllEntity()"/>
+            </get>
+        </rest>
+        <rest path="/jdyy/patientss/types/list" consumes="application/json;charset=utf-8"
+              produces="application/json;charset=utf-8">
+            <get id="route-getAllJdyyPatientsTypes">
+                <description>Find all patientss</description>
+                <to uri="bean:jdyyPatientsBeanService?method=getPatientsTypes(${header.query})"/>
+            </get>
+        </rest>-->
+
+    </camelContext>
+</blueprint>

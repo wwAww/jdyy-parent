@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.kalix.jdyy</groupId>
+        <artifactId>jdyy-parent</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.kalix.jdyy.patients</groupId>
+    <artifactId>patients-parent</artifactId>
+    <name>Kalix Jdyy Patients</name>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>jdyy-patients-entities</module>
+        <module>jdyy-patients-api</module>
+        <module>jdyy-patients-dao</module>
+        <module>jdyy-patients-biz</module>
+        <module>jdyy-patients-rest</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.kalix.jdyy.patients</groupId>
+                <artifactId>jdyy-patients-entities</artifactId>
+                <version>${project.jdyy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.jdyy.patients</groupId>
+                <artifactId>jdyy-patients-api</artifactId>
+                <version>${project.jdyy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.admin.core</groupId>
+                <artifactId>admin-core-api</artifactId>
+                <version>${project.admin.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
