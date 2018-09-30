@@ -12,7 +12,7 @@ public class JdyyPatientsBean extends PersistentEntity {
     private String sex;
     private String brith;
     private Integer age;
-    private Integer idcard;
+    private Integer idCard;
     private String bedNumber;
     private Integer hospitalNumber;
     private String directorDoctor;
@@ -23,9 +23,9 @@ public class JdyyPatientsBean extends PersistentEntity {
     private Integer bmi;
     private Integer bloodPressure;
     private String specialDisorders;
-    private String descriptionSpecialdisease;
+    private String descriptionSpecialDisease;
     private Integer allergicHistory;
-    private String type_medicalTreatment;
+    private String typeMedicalTreatment;
     private Integer WhetherDischarge;
     private Integer telephonePerson;
     private Integer familyPhone;
@@ -73,12 +73,12 @@ public class JdyyPatientsBean extends PersistentEntity {
         this.age = age;
     }
 
-    public Integer getIdcard() {
-        return idcard;
+    public Integer getIdCard() {
+        return idCard;
     }
 
-    public void setIdcard(Integer idcard) {
-        this.idcard = idcard;
+    public void setIdCard(Integer idCard) {
+        this.idCard = idCard;
     }
 
     public String getBedNumber() {
@@ -161,12 +161,12 @@ public class JdyyPatientsBean extends PersistentEntity {
         this.specialDisorders = specialDisorders;
     }
 
-    public String getDescriptionSpecialdisease() {
-        return descriptionSpecialdisease;
+    public String getDescriptionSpecialDisease() {
+        return descriptionSpecialDisease;
     }
 
-    public void setDescriptionSpecialdisease(String descriptionSpecialdisease) {
-        this.descriptionSpecialdisease = descriptionSpecialdisease;
+    public void setDescriptionSpecialDisease(String descriptionSpecialDisease) {
+        this.descriptionSpecialDisease = descriptionSpecialDisease;
     }
 
     public Integer getAllergicHistory() {
@@ -177,12 +177,12 @@ public class JdyyPatientsBean extends PersistentEntity {
         this.allergicHistory = allergicHistory;
     }
 
-    public String getType_medicalTreatment() {
-        return type_medicalTreatment;
+    public String getTypeMedicalTreatment() {
+        return typeMedicalTreatment;
     }
 
-    public void setType_medicalTreatment(String type_medicalTreatment) {
-        this.type_medicalTreatment = type_medicalTreatment;
+    public void setTypeMedicalTreatment(String typeMedicalTreatment) {
+        this.typeMedicalTreatment = typeMedicalTreatment;
     }
 
     public Integer getWhetherDischarge() {
