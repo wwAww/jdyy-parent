@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <parent>
+        <groupId>com.kalix.jdyy</groupId>
+        <artifactId>jdyy-parent</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.kalix.jdyy.stat</groupId>
+    <artifactId>stat-parent</artifactId>
+
+    <name>Kalix Jdyy Stat</name>
+
+    <packaging>pom</packaging>
+
+    <properties>
+
+    </properties>
+    <modules>
+        <module>jdyy-stat-entities</module>
+        <module>jdyy-stat-api</module>
+        <module>jdyy-stat-dao</module>
+        <module>jdyy-stat-biz</module>
+        <module>jdyy-stat-rest</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.kalix.jdyy.stat</groupId>
+                <artifactId>jdyy-stat-api</artifactId>
+                <version>${project.jdyy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.jdyy.stat</groupId>
+                <artifactId>jdyy-stat-entities</artifactId>
+                <version>${project.jdyy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.admin.core</groupId>
+                <artifactId>admin-core-api</artifactId>
+                <version>${project.admin.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

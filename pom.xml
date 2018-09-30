@@ -21,6 +21,7 @@
         <module>patients-parent</module>
         <module>surgical-parent</module>
         <module>system-parent</module>
+        <module>stat-parent</module>
     </modules>
     <build>
         <plugins>

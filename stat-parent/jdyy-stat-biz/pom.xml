@@ -2,32 +2,34 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
     <parent>
-        <groupId>com.kalix.jdyy.patients</groupId>
-        <artifactId>patients-parent</artifactId>
+        <artifactId>stat-parent</artifactId>
+        <groupId>com.kalix.jdyy.stat</groupId>
         <version>1.0.1-SNAPSHOT</version>
     </parent>
+    <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.kalix.jdyy.patients</groupId>
-    <artifactId>jdyy-patients-biz</artifactId>
-    <name>Kalix Jdyy Patients Biz</name>
+    <artifactId>jdyy-stat-biz</artifactId>
+    <name>Kalix Jdyy Stat Biz</name>
+    <description>Stat Biz</description>
     <packaging>bundle</packaging>
 
     <properties>
-        <bundle.symbolicName>com.kalix.jdyy.patients.biz</bundle.symbolicName>
+        <bundle.symbolicName>com.kalix.jdyy.stat.biz</bundle.symbolicName>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>com.kalix.jdyy.patients</groupId>
-            <artifactId>jdyy-patients-api</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
+            <groupId>com.kalix.jdyy.stat</groupId>
+            <artifactId>jdyy-stat-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.kalix.framework.core</groupId>
             <artifactId>framework-core-impl</artifactId>
         </dependency>
     </dependencies>
+
+
+
+
 </project>

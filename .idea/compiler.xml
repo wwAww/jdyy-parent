@@ -7,13 +7,37 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="jdyy-core-etc" />
+        <module name="jdyy-patients-api" />
+        <module name="jdyy-patients-biz" />
+        <module name="jdyy-patients-dao" />
+        <module name="jdyy-patients-entities" />
+        <module name="jdyy-patients-rest" />
+        <module name="jdyy-stat-api" />
+        <module name="jdyy-stat-biz" />
+        <module name="jdyy-stat-dao" />
+        <module name="jdyy-stat-entities" />
+        <module name="jdyy-stat-rest" />
+        <module name="jdyy-surgical-api" />
+        <module name="jdyy-surgical-biz" />
+        <module name="jdyy-surgical-dao" />
+        <module name="jdyy-surgical-entities" />
+        <module name="jdyy-surgical-rest" />
         <module name="jdyy-system-dict-api" />
         <module name="jdyy-system-dict-biz" />
         <module name="jdyy-system-dict-dao" />
         <module name="jdyy-system-dict-entities" />
         <module name="jdyy-system-dict-rest" />
-        <module name="jdyy-system-img-entities" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="analyse-parent" target="1.8" />
+      <module name="entry-parent" target="1.8" />
+      <module name="img-api" target="1.8" />
+      <module name="img-biz" target="1.8" />
+      <module name="img-dao" target="1.8" />
+      <module name="img-entities" target="1.8" />
+      <module name="img-parent" target="1.8" />
+      <module name="img-rest" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

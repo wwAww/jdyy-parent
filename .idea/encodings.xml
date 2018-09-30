@@ -4,6 +4,30 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core-parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core-parent/jdyy-core-etc" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img-parent/img-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img-parent/img-biz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img-parent/img-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img-parent/img-entities" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/img-parent/img-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patients-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patients-parent/jdyy-patients-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patients-parent/jdyy-patients-biz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patients-parent/jdyy-patients-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patients-parent/jdyy-patients-entities" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/patients-parent/jdyy-patients-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/stat-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/stat-parent/jdyy-stat-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/stat-parent/jdyy-stat-biz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/stat-parent/jdyy-stat-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/stat-parent/jdyy-stat-entities" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/stat-parent/jdyy-stat-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/surgical-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/surgical-parent/jdyy-surgical-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/surgical-parent/jdyy-surgical-biz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/surgical-parent/jdyy-surgical-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/surgical-parent/jdyy-surgical-entities" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/surgical-parent/jdyy-surgical-rest" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/system-parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/system-parent/dict-parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-api" charset="UTF-8" />
@@ -11,8 +35,6 @@
     <file url="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-entities" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-rest" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/system-parent/img-parent" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/system-parent/img-parent/jdyy-system-img-entities" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
