@@ -40,6 +40,9 @@ public class JdyyPatientsBean extends PersistentEntity {
     private String Surgical;
     private String dateOperation;
     private String periodization;
+    private String buckling;
+    private String abduction;
+    private String adduction;
 
     public String getName() {
         return name;
@@ -295,5 +298,29 @@ public class JdyyPatientsBean extends PersistentEntity {
 
     public void setPeriodization(String periodization) {
         this.periodization = periodization;
+    }
+
+    public String getBuckling() {
+        return buckling;
+    }
+
+    public void setBuckling(String buckling) {
+        this.buckling = buckling;
+    }
+
+    public String getAbduction() {
+        return abduction;
+    }
+
+    public void setAbduction(String abduction) {
+        this.abduction = abduction;
+    }
+
+    public String getAdduction() {
+        return adduction;
+    }
+
+    public void setAdduction(String adduction) {
+        this.adduction = adduction;
     }
 }
