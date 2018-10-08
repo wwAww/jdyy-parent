@@ -8,16 +8,16 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "jdyy_patients")
 public class JdyyPatientsBean extends PersistentEntity {
-    private String name;
-    private String sex;
-    private String brith;
-    private Integer age;
-    private Integer idCard;
-    private String bedNumber;
-    private Integer hospitalNumber;
-    private String directorDoctor;
-    private String dateAdmission;
-    private String dateAischarge;
+    private String name;// 姓名
+    private String sex;// 性别
+    private String brith;// 出生日期
+    private Integer age;// 年龄
+    private Integer idCard;// 身份证号
+    private String bedNumber;// 床位号
+    private Integer hospitalNumber;// 住院号
+    private String directorDoctor;// 主管医生
+    private String dateAdmission;//入院日期
+    private String DischargeDate;
     private Integer stature;
     private Integer weight;
     private Integer bmi;
@@ -29,9 +29,7 @@ public class JdyyPatientsBean extends PersistentEntity {
     private Integer WhetherDischarge;
     private Integer telephonePerson;
     private Integer familyPhone;
-    private String province;
-    private String city;
-    private String district;
+    private String address;
     private String completeAddress;
     private String remarks;
     private Integer harris;
@@ -116,12 +114,12 @@ public class JdyyPatientsBean extends PersistentEntity {
         this.dateAdmission = dateAdmission;
     }
 
-    public String getDateAischarge() {
-        return dateAischarge;
+    public String getDischargeDate() {
+        return DischargeDate;
     }
 
-    public void setDateAischarge(String dateAischarge) {
-        this.dateAischarge = dateAischarge;
+    public void setDischargeDate(String dischargeDate) {
+        DischargeDate = dischargeDate;
     }
 
     public Integer getStature() {
@@ -212,28 +210,12 @@ public class JdyyPatientsBean extends PersistentEntity {
         this.familyPhone = familyPhone;
     }
 
-    public String getProvince() {
-        return province;
+    public String getAddress() {
+        return address;
     }
 
-    public void setProvince(String province) {
-        this.province = province;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public String getDistrict() {
-        return district;
-    }
-
-    public void setDistrict(String district) {
-        this.district = district;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public String getCompleteAddress() {
