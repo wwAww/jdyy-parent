@@ -25,8 +25,8 @@
                 <to uri="bean:jdyyPatientsBeanService?method=saveEntity"/>
             </post>
         </rest>
-        <rest path="/jdyy/patientss/{id}" consumes="application/json;charset=utf-8" produces="application/json">
 
+        <rest path="/jdyy/patientss/{id}" consumes="application/json;charset=utf-8" produces="application/json">
             <get id="route-getJdyyPatients" type="com.kalix.jdyy.patients.entities.JdyyPatientsBean">
                 <description>Find JdyyPatients by id</description>
                 <to uri="bean:jdyyPatientsBeanService?method=getEntity(${header.id})"/>
