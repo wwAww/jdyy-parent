@@ -11,7 +11,7 @@
              ref="diagnosisBeanServiceImpl"/>
     <bean id="diagnosisBeanServiceImpl" class="com.kalix.jdyy.diagnosis.biz.DiagnosisBeanServiceImpl">
         <property name="dao" ref="diagnosisBeanDao"/>
-        <!--<property name="isurgicalBeanService" ref="surgicalBeanServiceImpl"/>-->
+        <!--<property name="diagnosisBeanServiceImpl" ref="DiagnosisBeanServiceImpl"/>-->
     </bean>
 
 </blueprint>

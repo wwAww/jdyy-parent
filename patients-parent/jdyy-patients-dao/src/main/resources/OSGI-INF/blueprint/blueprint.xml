@@ -6,11 +6,11 @@
     <jpa:enable/>
     <tx:enable-annotations/>
 
-    <bean id="jdyyPatientsBeanDaoImpl" class="com.kalix.jdyy.patients.dao.JdyyPatientsBeanDaoImpl">
+    <bean id="jdyyPatientsBeanDaoImpl" class="com.kalix.jdyy.patients.dao.PatientsBeanDaoImpl">
         <tx:transaction method="*" value="Required"/>
     </bean>
 
     <service id="jdyyPatientsBeanDao" ref="jdyyPatientsBeanDaoImpl"
-             interface="com.kalix.jdyy.patients.api.dao.IJdyyPatientsBeanDao">
+             interface="com.kalix.jdyy.patients.api.dao.IPatientsBeanDao">
     </service>
 </blueprint>

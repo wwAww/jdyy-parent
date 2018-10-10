@@ -5,12 +5,12 @@
 
     <!--<reference id="cacheManager" interface="com.kalix.framework.core.api.cache.ICacheManager"/>-->
     <!--<reference id="shiroService" interface="com.kalix.framework.core.api.security.IShiroService"/>-->
-    <reference id="jdyyPatientsBeanDao" interface="com.kalix.jdyy.patients.api.dao.IJdyyPatientsBeanDao"/>
+    <reference id="jdyyPatientsBeanDao" interface="com.kalix.jdyy.patients.api.dao.IPatientsBeanDao"/>
 
-    <service id="jdyyPatientsBeanService" interface="com.kalix.jdyy.patients.api.biz.IJdyyPatientsBeanService"
+    <service id="jdyyPatientsBeanService" interface="com.kalix.jdyy.patients.api.biz.IPatientsBeanService"
              ref="jdyyPatientsBeanServiceImpl">
     </service>
-    <bean id="jdyyPatientsBeanServiceImpl" class="com.kalix.jdyy.patients.biz.JdyyPatientsBeanServiceImpl">
+    <bean id="jdyyPatientsBeanServiceImpl" class="com.kalix.jdyy.patients.biz.PatientsBeanServiceImpl">
         <property name="dao" ref="jdyyPatientsBeanDao"/>
         <!--<property name="shiroService" ref="shiroService"/>-->
         <!--<property name="cacheManager" ref="cacheManager"/>-->

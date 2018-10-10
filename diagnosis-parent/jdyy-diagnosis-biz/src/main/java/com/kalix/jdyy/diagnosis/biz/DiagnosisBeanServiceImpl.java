@@ -24,7 +24,7 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
         DiagnosisTreeDTO root = new DiagnosisTreeDTO();
         root.setId(-1L);
         List<DiagnosisBean> beans = new ArrayList<>();
-        String sql = "select s from SurgicalBean s where 1=1";
+        String sql = "select s from DiagnosisBean s where 1=1";
         if(parentId != -1){
             sql += " and s.parentId=" + parentId;
         }

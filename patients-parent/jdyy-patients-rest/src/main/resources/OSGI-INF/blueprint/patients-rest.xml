@@ -4,7 +4,7 @@
            xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
 
-    <reference id="jdyyPatientsBeanService" interface="com.kalix.jdyy.patients.api.biz.IJdyyPatientsBeanService"/>
+    <reference id="IPatientsBeanService" interface="com.kalix.jdyy.patients.api.biz.IPatientsBeanService"/>
     <camelContext id="jdyyPatientsCamel" xmlns="http://camel.apache.org/schema/blueprint">
 
         <restConfiguration component="servlet" bindingMode="json">
@@ -16,32 +16,32 @@
 
             <get id="route-getAllJdyyPatients" outType="com.kalix.framework.core.api.persistence.JsonData">
                 <description>Find all JdyyPatients</description>
-                <to uri="bean:jdyyPatientsBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
+                <to uri="bean:IPatientsBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
             </get>
 
             <post id="route-addJdyyPatients" type="com.kalix.jdyy.patients.entities.PatientsBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Create a JdyyPatients</description>
-                <to uri="bean:jdyyPatientsBeanService?method=saveEntity"/>
+                <to uri="bean:IPatientsBeanService?method=saveEntity"/>
             </post>
         </rest>
 
         <rest path="/jdyy/patientss/{id}" consumes="application/json;charset=utf-8" produces="application/json">
             <get id="route-getJdyyPatients" type="com.kalix.jdyy.patients.entities.PatientsBean">
                 <description>Find JdyyPatients by id</description>
-                <to uri="bean:jdyyPatientsBeanService?method=getEntity(${header.id})"/>
+                <to uri="bean:IPatientsBeanService?method=getEntity(${header.id})"/>
             </get>
 
             <put id="route-updateJdyyPatients" type="com.kalix.jdyy.patients.entities.PatientsBean"
                  outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Updates a JdyyPatients</description>
-                <to uri="bean:jdyyPatientsBeanService?method=updateEntity"/>
+                <to uri="bean:IPatientsBeanService?method=updateEntity"/>
             </put>
 
             <delete id="route-deleteJdyyPatients"
                     outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Delete a JdyyPatients</description>
-                <to uri="bean:jdyyPatientsBeanService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:IPatientsBeanService?method=deleteEntity(${header.id})"/>
             </delete>
         </rest>
         <!--<rest path="/jdyy/patientss/cache/list" consumes="application/json;charset=utf-8"
