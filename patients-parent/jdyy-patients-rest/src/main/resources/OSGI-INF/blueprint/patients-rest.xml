@@ -19,7 +19,7 @@
                 <to uri="bean:jdyyPatientsBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
             </get>
 
-            <post id="route-addJdyyPatients" type="com.kalix.jdyy.patients.entities.JdyyPatientsBean"
+            <post id="route-addJdyyPatients" type="com.kalix.jdyy.patients.entities.PatientsBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Create a JdyyPatients</description>
                 <to uri="bean:jdyyPatientsBeanService?method=saveEntity"/>
@@ -27,12 +27,12 @@
         </rest>
 
         <rest path="/jdyy/patientss/{id}" consumes="application/json;charset=utf-8" produces="application/json">
-            <get id="route-getJdyyPatients" type="com.kalix.jdyy.patients.entities.JdyyPatientsBean">
+            <get id="route-getJdyyPatients" type="com.kalix.jdyy.patients.entities.PatientsBean">
                 <description>Find JdyyPatients by id</description>
                 <to uri="bean:jdyyPatientsBeanService?method=getEntity(${header.id})"/>
             </get>
 
-            <put id="route-updateJdyyPatients" type="com.kalix.jdyy.patients.entities.JdyyPatientsBean"
+            <put id="route-updateJdyyPatients" type="com.kalix.jdyy.patients.entities.PatientsBean"
                  outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Updates a JdyyPatients</description>
                 <to uri="bean:jdyyPatientsBeanService?method=updateEntity"/>

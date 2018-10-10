@@ -1,0 +1,18 @@
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:tx="http://aries.apache.org/xmlns/transactions/v1.2.0"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+">
+    <tx:enable-annotations/>
+
+    <!--留言-->
+    <reference id="diagnosisBeanDao" interface="com.kalix.jdyy.diagnosis.api.dao.IDiagnosisBeanDao"/>
+    <service id="diagnosisBeanService" interface="com.kalix.jdyy.diagnosis.api.biz.IDiagnosisBeanService"
+             ref="diagnosisBeanServiceImpl"/>
+    <bean id="diagnosisBeanServiceImpl" class="com.kalix.jdyy.diagnosis.biz.DiagnosisBeanServiceImpl">
+        <property name="dao" ref="diagnosisBeanDao"/>
+        <!--<property name="isurgicalBeanService" ref="surgicalBeanServiceImpl"/>-->
+    </bean>
+
+</blueprint>
+
