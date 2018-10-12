@@ -17,7 +17,7 @@ public class PatientsBean extends PersistentEntity {
     private Integer hospitalNumber;// 住院号
     private String directorDoctor;// 主管医生
     private String dateAdmission;//入院日期
-    private String DischargeDate;
+    private String dischargeDate;
     private Integer stature;
     private Integer weight;
     private Integer bmi;
@@ -26,7 +26,7 @@ public class PatientsBean extends PersistentEntity {
     private String descriptionSpecialDisease;
     private Integer allergicHistory;
     private String typeMedicalTreatment;
-    private Integer WhetherDischarge;
+    private Integer whetherDischarge;
     private Integer telephonePerson;
     private Integer familyPhone;
     private String address;
@@ -41,6 +41,7 @@ public class PatientsBean extends PersistentEntity {
     private String buckling;
     private String abduction;
     private String adduction;
+    private String photo;
 
     public String getName() {
         return name;
@@ -115,11 +116,11 @@ public class PatientsBean extends PersistentEntity {
     }
 
     public String getDischargeDate() {
-        return DischargeDate;
+        return dischargeDate;
     }
 
     public void setDischargeDate(String dischargeDate) {
-        DischargeDate = dischargeDate;
+        this.dischargeDate = dischargeDate;
     }
 
     public Integer getStature() {
@@ -187,11 +188,11 @@ public class PatientsBean extends PersistentEntity {
     }
 
     public Integer getWhetherDischarge() {
-        return WhetherDischarge;
+        return whetherDischarge;
     }
 
     public void setWhetherDischarge(Integer whetherDischarge) {
-        WhetherDischarge = whetherDischarge;
+        this.whetherDischarge = whetherDischarge;
     }
 
     public Integer getTelephonePerson() {
@@ -304,5 +305,13 @@ public class PatientsBean extends PersistentEntity {
 
     public void setAdduction(String adduction) {
         this.adduction = adduction;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 }

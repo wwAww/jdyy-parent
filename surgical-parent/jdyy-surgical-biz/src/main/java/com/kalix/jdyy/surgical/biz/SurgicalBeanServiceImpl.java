@@ -1,8 +1,11 @@
 package com.kalix.jdyy.surgical.biz;
 
+import com.google.gson.Gson;
+import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
 import com.kalix.jdyy.surgical.api.biz.ISurgicalBeanService;
 import com.kalix.jdyy.surgical.api.dao.ISurgicalBeanDao;
+import com.kalix.jdyy.surgical.api.dto.SurgicalDTO;
 import com.kalix.jdyy.surgical.api.dto.SurgicalTreeDTO;
 import com.kalix.jdyy.surgical.entities.SurgicalBean;
 import org.dozer.DozerBeanMapper;
@@ -16,7 +19,7 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
         super();
     }
     /**
-     * 回复树
+     * 术式树
      */
     @Override
     public SurgicalTreeDTO getAllByParentId(long parentId) {
@@ -80,5 +83,17 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
             }
         }
         return roots;
+    }
+
+    public JsonData getAllByParentId() {
+        SurgicalDTO surgicalDTO = new SurgicalDTO();
+        List<SurgicalDTO> list = new ArrayList<>();
+        List<SurgicalBean> oneList = dao.find("select s from SurgicalBean s where parentId='-1'");
+        for(SurgicalBean one : oneList) {
+            SurgicalDTO oneModel = new SurgicalDTO();
+            oneModel.setValue(one.getContent());
+            oneModel.setLabel(one.getContent());
+        }
+        return null;
     }
 }
