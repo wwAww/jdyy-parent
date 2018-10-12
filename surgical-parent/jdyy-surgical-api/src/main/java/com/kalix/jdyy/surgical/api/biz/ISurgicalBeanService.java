@@ -7,7 +7,7 @@ import com.kalix.jdyy.surgical.entities.SurgicalBean;
 
 public interface ISurgicalBeanService extends IBizService<SurgicalBean> {
     // 术式树
-    SurgicalTreeDTO getAllByParentId(long parentId);
+    SurgicalTreeDTO getAllSurByParentId(long parentId);
 
-    JsonData getAllByParentId();
+    JsonData getAllSurByParentId();
 }

@@ -1,8 +1,11 @@
 package com.kalix.jdyy.diagnosis.biz;
 
+import com.google.gson.Gson;
+import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
 import com.kalix.jdyy.diagnosis.api.biz.IDiagnosisBeanService;
 import com.kalix.jdyy.diagnosis.api.dao.IDiagnosisBeanDao;
+import com.kalix.jdyy.diagnosis.api.dto.DiagnosisDTO;
 import com.kalix.jdyy.diagnosis.api.dto.DiagnosisTreeDTO;
 import com.kalix.jdyy.diagnosis.entities.DiagnosisBean;
 import org.dozer.DozerBeanMapper;
@@ -17,10 +20,10 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
     }
 
     /**
-     * 回复树
+     * 诊断树
      */
     @Override
-    public DiagnosisTreeDTO getAllByParentId(long parentId) {
+    public DiagnosisTreeDTO getAllDiaByParentId(long parentId) {
         DiagnosisTreeDTO root = new DiagnosisTreeDTO();
         root.setId(-1L);
         List<DiagnosisBean> beans = new ArrayList<>();
@@ -81,5 +84,41 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
             }
         }
         return roots;
+    }
+
+    public JsonData getAllDiaByParentId() {
+        DiagnosisDTO diagnosisDTO = new DiagnosisDTO();
+        List<DiagnosisDTO> list = new ArrayList<>();
+        List<DiagnosisBean> oneList = dao.find("select d from DiagnosisBean d where d.parentId=-1");
+        for(DiagnosisBean one : oneList) {
+            DiagnosisDTO oneModel = new DiagnosisDTO();
+            oneModel.setValue(one.getContent());
+            oneModel.setLabel(one.getContent());
+            List<DiagnosisBean> twoList = dao.find("select d from DiagnosisBean d where d.parentId = ?1" , one.getId());
+            List<DiagnosisDTO> tsList = new ArrayList<>();
+            for (DiagnosisBean two:twoList) {
+                DiagnosisDTO twoModel = new DiagnosisDTO();
+                twoModel.setValue(two.getContent());
+                twoModel.setLabel(two.getContent());
+                List<DiagnosisBean> threeList = dao.find("select d from DiagnosisBean d where d.parentId = ?1" , two.getId());
+                List<DiagnosisDTO> thList = new ArrayList<>();
+                for (DiagnosisBean three:threeList) {
+                    DiagnosisDTO threeModel = new DiagnosisDTO();
+                    threeModel.setValue(three.getContent());
+                    threeModel.setLabel(three.getContent());
+                    thList.add(threeModel);
+                }
+                twoModel.setChildren(thList);
+                tsList.add(twoModel);
+            }
+            oneModel.setChildren(tsList);
+            list.add(oneModel);
+        }
+        List<String> infoList = new ArrayList<>();
+        infoList.add(new Gson().toJson(list));
+        JsonData jsonData = new JsonData();
+        jsonData.setTotalCount((long) list.size());
+        jsonData.setData(infoList);
+        return jsonData;
     }
 }

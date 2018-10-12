@@ -16,9 +16,9 @@
                 <description>Finde all Diagnosis</description>
                 <to uri="bean:diagnosisBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
             </get>
-            <get id="route-getAllByParentId" outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getAllByParentId">
+            <get id="route-getAllDiaByParentId" outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getAllDiaByParentId">
                 <description>Finde all Diagnosis</description>
-                <to uri="bean:diagnosisBeanService?method=getAllByParentId(${header.parentId})"/>
+                <to uri="bean:diagnosisBeanService?method=getAllDiaByParentId()"/>
             </get>
             <post id="route-addDiagnosis" type="com.kalix.jdyy.diagnosis.entities.DiagnosisBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">

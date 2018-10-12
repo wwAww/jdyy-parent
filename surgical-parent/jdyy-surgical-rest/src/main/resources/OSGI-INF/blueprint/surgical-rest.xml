@@ -16,9 +16,9 @@
                 <description>Finde all Surgical</description>
                 <to uri="bean:surgicalBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
             </get>
-            <get id="route-getAllByParentId" outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getAllByParentId">
+            <get id="route-getAllSurByParentId" outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getAllSurByParentId">
                 <description>Finde all Surgical</description>
-                <to uri="bean:surgicalBeanService?method=getAllByParentId(${header.parentId})"/>
+                <to uri="bean:surgicalBeanService?method=getAllSurByParentId()"/>
             </get>
             <post id="route-addSurgical" type="com.kalix.jdyy.surgical.entities.SurgicalBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">

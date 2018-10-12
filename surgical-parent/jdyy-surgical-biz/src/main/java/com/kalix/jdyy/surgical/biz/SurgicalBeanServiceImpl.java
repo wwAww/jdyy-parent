@@ -22,7 +22,7 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
      * 术式树
      */
     @Override
-    public SurgicalTreeDTO getAllByParentId(long parentId) {
+    public SurgicalTreeDTO getAllSurByParentId(long parentId) {
         SurgicalTreeDTO root = new SurgicalTreeDTO();
         root.setId(-1L);
         List<SurgicalBean> beans = new ArrayList<>();
@@ -85,15 +85,40 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
         return roots;
     }
 
-    public JsonData getAllByParentId() {
+    public JsonData getAllSurByParentId() {
         SurgicalDTO surgicalDTO = new SurgicalDTO();
         List<SurgicalDTO> list = new ArrayList<>();
-        List<SurgicalBean> oneList = dao.find("select s from SurgicalBean s where parentId='-1'");
+        List<SurgicalBean> oneList = dao.find("select s from SurgicalBean s where s.parentId=-1");
         for(SurgicalBean one : oneList) {
             SurgicalDTO oneModel = new SurgicalDTO();
             oneModel.setValue(one.getContent());
             oneModel.setLabel(one.getContent());
+            List<SurgicalBean> twoList = dao.find("select s from SurgicalBean s where s.parentId = ?1" , one.getId());
+            List<SurgicalDTO> tsList = new ArrayList<>();
+            for (SurgicalBean two:twoList) {
+                SurgicalDTO twoModel = new SurgicalDTO();
+                twoModel.setValue(two.getContent());
+                twoModel.setLabel(two.getContent());
+                List<SurgicalBean> threeList = dao.find("select s from SurgicalBean s where s.parentId = ?1" , two.getId());
+                List<SurgicalDTO> thList = new ArrayList<>();
+                for (SurgicalBean three:threeList) {
+                    SurgicalDTO threeModel = new SurgicalDTO();
+                    threeModel.setValue(three.getContent());
+                    threeModel.setLabel(three.getContent());
+                    thList.add(threeModel);
+                }
+                twoModel.setChildren(thList);
+                tsList.add(twoModel);
+            }
+            oneModel.setChildren(tsList);
+            list.add(oneModel);
         }
-        return null;
+        List<String> infoList = new ArrayList<>();
+        infoList.add(new Gson().toJson(list));
+        JsonData jsonData = new JsonData();
+        jsonData.setTotalCount((long) list.size());
+        jsonData.setData(infoList);
+        return jsonData;
     }
+
 }

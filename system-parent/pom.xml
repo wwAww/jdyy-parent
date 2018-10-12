@@ -12,7 +12,7 @@
 
     <groupId>com.kalix.jdyy</groupId>
     <artifactId>system-parent</artifactId>
-    <name>Kalix Jdyy System</name>
+    <name>Kalix Jdyy System Parent</name>
     <dependencies>
         <dependency>
             <groupId>com.kalix.framework.core</groupId>
@@ -23,6 +23,7 @@
 
     <modules>
         <module>dict-parent</module>
+        <module>district-parent</module>
     </modules>
 
     
