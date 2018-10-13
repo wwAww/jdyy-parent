@@ -34,14 +34,14 @@ public class PatientsBean extends PersistentEntity {
     private String remarks;
     private Integer harris;
     private Integer hss;
-    private String diagnosis;
-    private String surgical;
-    private String dateOperation;
-    private String periodization;
+//    private String diagnosis;
+//    private String surgical;
+//    private String dateOperation;
+//    private String periodization;
     private String buckling;
     private String abduction;
     private String adduction;
-    private String photo;
+//    private String photo;
 
     public String getName() {
         return name;
@@ -251,38 +251,6 @@ public class PatientsBean extends PersistentEntity {
         this.hss = hss;
     }
 
-    public String getDiagnosis() {
-        return diagnosis;
-    }
-
-    public void setDiagnosis(String diagnosis) {
-        this.diagnosis = diagnosis;
-    }
-
-    public String getSurgical() {
-        return surgical;
-    }
-
-    public void setSurgical(String surgical) {
-        this.surgical = surgical;
-    }
-
-    public String getDateOperation() {
-        return dateOperation;
-    }
-
-    public void setDateOperation(String dateOperation) {
-        this.dateOperation = dateOperation;
-    }
-
-    public String getPeriodization() {
-        return periodization;
-    }
-
-    public void setPeriodization(String periodization) {
-        this.periodization = periodization;
-    }
-
     public String getBuckling() {
         return buckling;
     }
@@ -307,11 +275,4 @@ public class PatientsBean extends PersistentEntity {
         this.adduction = adduction;
     }
 
-    public String getPhoto() {
-        return photo;
-    }
-
-    public void setPhoto(String photo) {
-        this.photo = photo;
-    }
 }
