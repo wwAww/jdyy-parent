@@ -86,7 +86,7 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
         return roots;
     }
 
-    public JsonData getAllDiaByParentId() {
+    public JsonData getDiaById() {
         DiagnosisDTO diagnosisDTO = new DiagnosisDTO();
         List<DiagnosisDTO> list = new ArrayList<>();
         List<DiagnosisBean> oneList = dao.find("select d from DiagnosisBean d where d.parentId=-1");

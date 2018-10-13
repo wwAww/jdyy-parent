@@ -85,7 +85,7 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
         return roots;
     }
 
-    public JsonData getAllSurByParentId() {
+    public JsonData getSurById() {
         SurgicalDTO surgicalDTO = new SurgicalDTO();
         List<SurgicalDTO> list = new ArrayList<>();
         List<SurgicalBean> oneList = dao.find("select s from SurgicalBean s where s.parentId=-1");

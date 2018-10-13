@@ -8,7 +8,7 @@
     <!--地区编码管理-->
     <reference id="districtService" interface="com.kalix.jdyy.system.district.api.biz.IDistrictBeanService"/>
     <bean id="districtRoute" class="com.kalix.framework.core.impl.camel.BaseRouteBuilder">
-        <property name="beanName" value="com.kalix.jdyy.system.district.DistrictBean"/>
+        <property name="beanName" value="com.kalix.jdyy.system.district.entities.DistrictBean"/>
     </bean>
     <camelContext id="districtCamel" xmlns="http://camel.apache.org/schema/blueprint">
         <routeBuilder ref="districtRoute"/>

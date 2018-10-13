@@ -9,5 +9,5 @@ public interface IDiagnosisBeanService extends IBizService<DiagnosisBean> {
     // 回复树
     DiagnosisTreeDTO getAllDiaByParentId(long parentId);
 
-    JsonData getAllDiaByParentId();
+    JsonData getDiaById();
 }

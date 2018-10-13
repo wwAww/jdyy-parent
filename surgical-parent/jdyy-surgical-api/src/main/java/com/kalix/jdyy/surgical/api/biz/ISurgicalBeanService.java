@@ -9,5 +9,5 @@ public interface ISurgicalBeanService extends IBizService<SurgicalBean> {
     // 术式树
     SurgicalTreeDTO getAllSurByParentId(long parentId);
 
-    JsonData getAllSurByParentId();
+    JsonData getSurById();
 }
