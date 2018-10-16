@@ -13,6 +13,7 @@ import org.dozer.Mapper;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBeanDao,SurgicalBean> implements ISurgicalBeanService {
         public SurgicalBeanServiceImpl() {
@@ -85,40 +86,47 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
         return roots;
     }
 
-    public JsonData getSurById() {
-        SurgicalDTO surgicalDTO = new SurgicalDTO();
+    /**
+     * 获取术式信息，并以级联形式返回数据
+     * @return
+     */
+
+    public JsonData getSurCascader() {
+        List<SurgicalBean> qlist = dao.find("select s from SurgicalBean s");
+        List<SurgicalBean> listParents = qlist.stream().filter(db-> db.getParentId()==-1).collect(Collectors.toList());
         List<SurgicalDTO> list = new ArrayList<>();
-        List<SurgicalBean> oneList = dao.find("select s from SurgicalBean s where s.parentId=-1");
-        for(SurgicalBean one : oneList) {
-            SurgicalDTO oneModel = new SurgicalDTO();
-            oneModel.setValue(one.getContent());
-            oneModel.setLabel(one.getContent());
-            List<SurgicalBean> twoList = dao.find("select s from SurgicalBean s where s.parentId = ?1" , one.getId());
-            List<SurgicalDTO> tsList = new ArrayList<>();
-            for (SurgicalBean two:twoList) {
-                SurgicalDTO twoModel = new SurgicalDTO();
-                twoModel.setValue(two.getContent());
-                twoModel.setLabel(two.getContent());
-                List<SurgicalBean> threeList = dao.find("select s from SurgicalBean s where s.parentId = ?1" , two.getId());
-                List<SurgicalDTO> thList = new ArrayList<>();
-                for (SurgicalBean three:threeList) {
-                    SurgicalDTO threeModel = new SurgicalDTO();
-                    threeModel.setValue(three.getContent());
-                    threeModel.setLabel(three.getContent());
-                    thList.add(threeModel);
-                }
-                twoModel.setChildren(thList);
-                tsList.add(twoModel);
-            }
-            oneModel.setChildren(tsList);
-            list.add(oneModel);
+        for(SurgicalBean one : listParents) {
+            SurgicalDTO sd = new SurgicalDTO();
+            sd.setValue(one.getContent());
+            sd.setLabel(one.getContent());
+            sd.setChildren(getSurgicalChilden(one, qlist));
+            list.add(sd);
         }
-        List<String> infoList = new ArrayList<>();
-        infoList.add(new Gson().toJson(list));
         JsonData jsonData = new JsonData();
         jsonData.setTotalCount((long) list.size());
-        jsonData.setData(infoList);
+        jsonData.setData(list);
         return jsonData;
+    }
+
+    /**
+     * 递归方法获取级联子节点
+     */
+
+    private List<SurgicalDTO> getSurgicalChilden(SurgicalBean one, List<SurgicalBean> qlist) {
+        List<SurgicalDTO> list = new ArrayList<>();
+        for (SurgicalBean db : qlist) {
+            if (one.getId() == db.getParentId()) {
+                SurgicalDTO sd = new SurgicalDTO();
+                sd.setValue(db.getContent());
+                sd.setLabel(db.getContent());
+                List<SurgicalDTO> children = getSurgicalChilden(db, qlist);
+                if (children != null && !children.isEmpty()) {
+                    sd.setChildren(children);
+                }
+                list.add(sd);
+            }
+        }
+        return list;
     }
 
 }

@@ -12,7 +12,11 @@ import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBeanDao,DiagnosisBean> implements IDiagnosisBeanService {
     public DiagnosisBeanServiceImpl() {
@@ -86,39 +90,46 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
         return roots;
     }
 
-    public JsonData getDiaById() {
-        DiagnosisDTO diagnosisDTO = new DiagnosisDTO();
+    /**
+     * 获取诊断信息，并以级联形式返回数据
+     * @return
+     */
+
+    public JsonData getDiaCascader() {
+        List<DiagnosisBean> qlist = dao.find("select d from DiagnosisBean d");
+        List<DiagnosisBean> listParents = qlist.stream().filter(db-> db.getParentId()==-1).collect(Collectors.toList());
         List<DiagnosisDTO> list = new ArrayList<>();
-        List<DiagnosisBean> oneList = dao.find("select d from DiagnosisBean d where d.parentId=-1");
-        for(DiagnosisBean one : oneList) {
-            DiagnosisDTO oneModel = new DiagnosisDTO();
-            oneModel.setValue(one.getContent());
-            oneModel.setLabel(one.getContent());
-            List<DiagnosisBean> twoList = dao.find("select d from DiagnosisBean d where d.parentId = ?1" , one.getId());
-            List<DiagnosisDTO> tsList = new ArrayList<>();
-            for (DiagnosisBean two:twoList) {
-                DiagnosisDTO twoModel = new DiagnosisDTO();
-                twoModel.setValue(two.getContent());
-                twoModel.setLabel(two.getContent());
-                List<DiagnosisBean> threeList = dao.find("select d from DiagnosisBean d where d.parentId = ?1" , two.getId());
-                List<DiagnosisDTO> thList = new ArrayList<>();
-                for (DiagnosisBean three:threeList) {
-                    DiagnosisDTO threeModel = new DiagnosisDTO();
-                    threeModel.setValue(three.getContent());
-                    threeModel.setLabel(three.getContent());
-                    thList.add(threeModel);
-                }
-                twoModel.setChildren(thList);
-                tsList.add(twoModel);
-            }
-            oneModel.setChildren(tsList);
-            list.add(oneModel);
+        for(DiagnosisBean one : listParents) {
+            DiagnosisDTO dd = new DiagnosisDTO();
+            dd.setValue(one.getContent());
+            dd.setLabel(one.getContent());
+            dd.setChildren(getDiagnosisChilden(one, qlist));
+            list.add(dd);
         }
-        List<String> infoList = new ArrayList<>();
-        infoList.add(new Gson().toJson(list));
         JsonData jsonData = new JsonData();
         jsonData.setTotalCount((long) list.size());
-        jsonData.setData(infoList);
+        jsonData.setData(list);
         return jsonData;
+    }
+
+    /**
+     * 递归方法获取级联子节点
+     */
+
+    private List<DiagnosisDTO> getDiagnosisChilden(DiagnosisBean one, List<DiagnosisBean> qlist) {
+        List<DiagnosisDTO> list = new ArrayList<>();
+        for (DiagnosisBean db : qlist) {
+            if (one.getId() == db.getParentId()) {
+                DiagnosisDTO dd = new DiagnosisDTO();
+                dd.setValue(db.getContent());
+                dd.setLabel(db.getContent());
+                List<DiagnosisDTO> children = getDiagnosisChilden(db, qlist);
+                if (children != null && !children.isEmpty()) {
+                    dd.setChildren(children);
+                }
+                list.add(dd);
+            }
+        }
+        return list;
     }
 }

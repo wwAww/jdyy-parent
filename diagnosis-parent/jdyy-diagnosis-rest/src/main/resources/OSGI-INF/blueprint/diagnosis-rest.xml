@@ -20,9 +20,9 @@
                 <description>Finde all Diagnosis</description>
                 <to uri="bean:diagnosisBeanService?method=getAllDiaByParentId(${header.parentId})"/>
             </get>
-            <get id="route-getDiaById" outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getDiaById">
+            <get id="route-getDiaById" outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getDiaCascader">
                 <description>Finde all Diagnosis</description>
-                <to uri="bean:diagnosisBeanService?method=getDiaById"/>
+                <to uri="bean:diagnosisBeanService?method=getDiaCascader"/>
             </get>
             <post id="route-addDiagnosis" type="com.kalix.jdyy.diagnosis.entities.DiagnosisBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">
