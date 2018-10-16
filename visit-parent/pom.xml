@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.kalix.jdyy</groupId>
+        <artifactId>jdyy-parent</artifactId>
+        <version>1.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.kalix.jdyy.visit</groupId>
+    <artifactId>visit-parent</artifactId>
+    <name>Kalix Jdyy Visit</name>
+
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>jdyy-visit-entities</module>
+        <module>jdyy-visit-api</module>
+        <module>jdyy-visit-dao</module>
+        <module>jdyy-visit-biz</module>
+        <module>jdyy-visit-rest</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.kalix.jdyy.visit</groupId>
+                <artifactId>jdyy-visit-entities</artifactId>
+                <version>${project.jdyy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.jdyy.visit</groupId>
+                <artifactId>jdyy-visit-api</artifactId>
+                <version>${project.jdyy.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.kalix.admin.core</groupId>
+                <artifactId>admin-core-api</artifactId>
+                <version>${project.admin.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>

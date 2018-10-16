@@ -29,5 +29,9 @@
             <groupId>com.kalix.framework.core</groupId>
             <artifactId>framework-core-impl</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.kalix.jdyy.patients</groupId>
+            <artifactId>jdyy-patients-api</artifactId>
+        </dependency>
     </dependencies>
 </project>

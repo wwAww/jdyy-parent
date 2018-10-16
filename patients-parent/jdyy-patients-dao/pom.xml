@@ -46,6 +46,10 @@
             <version>1.0.1-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.kalix.jdyy.patients</groupId>
+            <artifactId>jdyy-patients-api</artifactId>
+        </dependency>
     </dependencies>
 
     
