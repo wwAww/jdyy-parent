@@ -14,34 +14,34 @@
         <rest path="/jdyy/visits" consumes="application/json;charset=utf-8" produces="application/json">
             <description>audit rest service</description>
 
-            <get id="route-getAllJdyyVisits" outType="com.kalix.framework.core.api.visit.JsonData">
+            <get id="route-getAllJdyyVisits" outType="com.kalix.framework.core.api.persistence.JsonData">
                 <description>Find all JdyyVisits</description>
-                <to uri="bean:IVisitsBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
+                <to uri="bean:IVisitBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
             </get>
 
-            <post id="route-addJdyyVisits" type="com.kalix.jdyy.visit.entities.VisitsBean"
+            <post id="route-addJdyyVisits" type="com.kalix.jdyy.visit.entities.VisitBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Create a JdyyVisits</description>
-                <to uri="bean:IVisitsBeanService?method=saveEntity"/>
+                <to uri="bean:IVisitBeanService?method=saveEntity"/>
             </post>
         </rest>
 
         <rest path="/jdyy/visits/{id}" consumes="application/json;charset=utf-8" produces="application/json">
-            <get id="route-getJdyyVisits" type="com.kalix.jdyy.visit.entities.VisitsBean">
+            <get id="route-getJdyyVisits" type="com.kalix.jdyy.visit.entities.VisitBean">
                 <description>Find JdyyVisits by id</description>
-                <to uri="bean:IVisitsBeanService?method=getEntity(${header.id})"/>
+                <to uri="bean:IVisitBeanService?method=getEntity(${header.id})"/>
             </get>
 
-            <put id="route-updateJdyyVisits" type="com.kalix.jdyy.visit.entities.VisitsBean"
+            <put id="route-updateJdyyVisits" type="com.kalix.jdyy.visit.entities.VisitBean"
                  outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Updates a JdyyVisits</description>
-                <to uri="bean:IVisitsBeanService?method=updateEntity"/>
+                <to uri="bean:IVisitBeanService?method=updateEntity"/>
             </put>
 
             <delete id="route-deleteJdyyVisits"
                     outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Delete a JdyyVisits</description>
-                <to uri="bean:IVisitsBeanService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:IVisitBeanService?method=deleteEntity(${header.id})"/>
             </delete>
         </rest>
         <!--<rest path="/jdyy/patientss/cache/list" consumes="application/json;charset=utf-8"

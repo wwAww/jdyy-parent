@@ -17,31 +17,26 @@ public class PatientsBean extends PersistentEntity {
     private Integer hospitalNumber;// 住院号
     private String directorDoctor;// 主管医生
     private String dateAdmission;//入院日期
-    private String dischargeDate;
-    private Integer stature;
-    private Integer weight;
-    private Integer bmi;
-    private Integer bloodPressure;
-    private String specialDisorders;
-    private String descriptionSpecialDisease;
-    private Integer allergicHistory;
-    private String typeMedicalTreatment;
-    private Integer whetherDischarge;
-    private Integer telephonePerson;
-    private Integer familyPhone;
-    private String address;
-    private String completeAddress;
-    private String remarks;
-    private Integer harris;
-    private Integer hss;
-//    private String diagnosis;
-//    private String surgical;
-//    private String dateOperation;
-//    private String periodization;
-    private String buckling;
-    private String abduction;
-    private String adduction;
-//    private String photo;
+    private String dischargeDate;// 出院日期
+    private Integer stature;// 身高
+    private Integer weight;// 体重
+    private Integer bmi;// BMI
+    private Integer bloodPressure;// 血压
+    private String specialDisorders;// 特殊疾病
+    private String descriptionSpecialDisease;// 特殊疾病描述
+    private Integer allergicHistory;// 过敏史
+    private String medicalCategory;// 医疗类别
+    private Integer whetherDischarge;// 是否出院
+    private Integer telephonePerson;// 本人联系方式
+    private Integer familyPhone;// 家属联系方式
+    private String address;// 省市区
+    private String completeAddress;// 详细地址
+    private String remarks;// 备注
+    private Integer harris;// harris评分
+    private Integer hss;// hss评分
+    private String buckling;// 屈曲
+    private String abduction;// 外展
+    private String adduction;// 内收
 
     public String getName() {
         return name;
@@ -179,12 +174,12 @@ public class PatientsBean extends PersistentEntity {
         this.allergicHistory = allergicHistory;
     }
 
-    public String getTypeMedicalTreatment() {
-        return typeMedicalTreatment;
+    public String getMedicalCategory() {
+        return medicalCategory;
     }
 
-    public void setTypeMedicalTreatment(String typeMedicalTreatment) {
-        this.typeMedicalTreatment = typeMedicalTreatment;
+    public void setMedicalCategory(String medicalCategory) {
+        this.medicalCategory = medicalCategory;
     }
 
     public Integer getWhetherDischarge() {

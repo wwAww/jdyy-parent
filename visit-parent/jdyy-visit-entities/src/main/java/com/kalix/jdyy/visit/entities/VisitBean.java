@@ -8,11 +8,20 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "jdyy_visit")
 public class VisitBean extends PersistentEntity {
-    private String diagnosis;
-    private String surgical;
-    private String dateOperation;
-    private String periodization;
-    private String photo;
+    private String pid;// 患者
+    private String diagnosis;// 诊断
+    private String surgical;// 术式
+    private String operationDate;// 手术日期
+    private String periodization;// 分期
+    private String photo;// 图片
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
+    }
 
     public String getDiagnosis() {
         return diagnosis;
@@ -30,12 +39,12 @@ public class VisitBean extends PersistentEntity {
         this.surgical = surgical;
     }
 
-    public String getDateOperation() {
-        return dateOperation;
+    public String getOperationDate() {
+        return operationDate;
     }
 
-    public void setDateOperation(String dateOperation) {
-        this.dateOperation = dateOperation;
+    public void setOperationDate(String operationDate) {
+        this.operationDate = operationDate;
     }
 
     public String getPeriodization() {

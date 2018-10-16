@@ -2,12 +2,6 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cascade-parent" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cascade-parent/jdyy-cascade-api" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cascade-parent/jdyy-cascade-biz" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cascade-parent/jdyy-cascade-dao" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cascade-parent/jdyy-cascade-entities" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/cascade-parent/jdyy-cascade-rest" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core-parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core-parent/jdyy-core-etc" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/diagnosis-parent" charset="UTF-8" />

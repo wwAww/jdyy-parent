@@ -1,4 +1,4 @@
-package com.kalix.jdyy.cascade.entities;
+package com.kalix.jdyy.visit.entities;
 
 import com.kalix.framework.core.api.persistence.PersistentEntity;
 

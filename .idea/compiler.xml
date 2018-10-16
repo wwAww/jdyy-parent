@@ -6,11 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="jdyy-cascade-api" />
-        <module name="jdyy-cascade-biz" />
-        <module name="jdyy-cascade-dao" />
-        <module name="jdyy-cascade-entities" />
-        <module name="jdyy-cascade-rest" />
         <module name="jdyy-core-etc" />
         <module name="jdyy-diagnosis-api" />
         <module name="jdyy-diagnosis-biz" />
@@ -50,12 +45,52 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="cascade-parent" target="1.8" />
-      <module name="jdyy-cascade-api" target="1.8" />
-      <module name="jdyy-cascade-biz" target="1.8" />
-      <module name="jdyy-cascade-dao" target="1.8" />
-      <module name="jdyy-cascade-entities" target="1.8" />
-      <module name="jdyy-cascade-rest" target="1.8" />
+      <module name="core-parent" target="1.8" />
+      <module name="diagnosis-parent" target="1.8" />
+      <module name="dict-parent" target="1.8" />
+      <module name="district-parent" target="1.8" />
+      <module name="jdyy-core-etc" target="1.8" />
+      <module name="jdyy-diagnosis-api" target="1.8" />
+      <module name="jdyy-diagnosis-biz" target="1.8" />
+      <module name="jdyy-diagnosis-dao" target="1.8" />
+      <module name="jdyy-diagnosis-entities" target="1.8" />
+      <module name="jdyy-diagnosis-rest" target="1.8" />
+      <module name="jdyy-parent" target="1.8" />
+      <module name="jdyy-patients-api" target="1.8" />
+      <module name="jdyy-patients-biz" target="1.8" />
+      <module name="jdyy-patients-dao" target="1.8" />
+      <module name="jdyy-patients-entities" target="1.8" />
+      <module name="jdyy-patients-rest" target="1.8" />
+      <module name="jdyy-statistics-api" target="1.8" />
+      <module name="jdyy-statistics-biz" target="1.8" />
+      <module name="jdyy-statistics-dao" target="1.8" />
+      <module name="jdyy-statistics-entities" target="1.8" />
+      <module name="jdyy-statistics-rest" target="1.8" />
+      <module name="jdyy-surgical-api" target="1.8" />
+      <module name="jdyy-surgical-biz" target="1.8" />
+      <module name="jdyy-surgical-dao" target="1.8" />
+      <module name="jdyy-surgical-entities" target="1.8" />
+      <module name="jdyy-surgical-rest" target="1.8" />
+      <module name="jdyy-system-dict-api" target="1.8" />
+      <module name="jdyy-system-dict-biz" target="1.8" />
+      <module name="jdyy-system-dict-dao" target="1.8" />
+      <module name="jdyy-system-dict-entities" target="1.8" />
+      <module name="jdyy-system-dict-rest" target="1.8" />
+      <module name="jdyy-system-district-api" target="1.8" />
+      <module name="jdyy-system-district-biz" target="1.8" />
+      <module name="jdyy-system-district-dao" target="1.8" />
+      <module name="jdyy-system-district-entities" target="1.8" />
+      <module name="jdyy-system-district-rest" target="1.8" />
+      <module name="jdyy-visit-api" target="1.8" />
+      <module name="jdyy-visit-biz" target="1.8" />
+      <module name="jdyy-visit-dao" target="1.8" />
+      <module name="jdyy-visit-entities" target="1.8" />
+      <module name="jdyy-visit-rest" target="1.8" />
+      <module name="patients-parent" target="1.8" />
+      <module name="statistics-parent" target="1.8" />
+      <module name="surgical-parent" target="1.8" />
+      <module name="system-parent" target="1.8" />
+      <module name="visit-parent" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
