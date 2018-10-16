@@ -49,5 +49,13 @@
         <module name="jdyy-visit-rest" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cascade-parent" target="1.8" />
+      <module name="jdyy-cascade-api" target="1.8" />
+      <module name="jdyy-cascade-biz" target="1.8" />
+      <module name="jdyy-cascade-dao" target="1.8" />
+      <module name="jdyy-cascade-entities" target="1.8" />
+      <module name="jdyy-cascade-rest" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
