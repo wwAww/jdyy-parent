@@ -2,26 +2,32 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cascade-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cascade-parent/jdyy-cascade-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cascade-parent/jdyy-cascade-biz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cascade-parent/jdyy-cascade-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cascade-parent/jdyy-cascade-entities" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cascade-parent/jdyy-cascade-rest" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core-parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/core-parent/jdyy-core-etc" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/img-parent" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/img-parent/img-api" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/img-parent/img-biz" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/img-parent/img-dao" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/img-parent/img-entities" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/img-parent/img-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/diagnosis-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/diagnosis-parent/jdyy-diagnosis-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/diagnosis-parent/jdyy-diagnosis-biz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/diagnosis-parent/jdyy-diagnosis-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/diagnosis-parent/jdyy-diagnosis-entities" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/diagnosis-parent/jdyy-diagnosis-rest" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/patients-parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/patients-parent/jdyy-patients-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/patients-parent/jdyy-patients-biz" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/patients-parent/jdyy-patients-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/patients-parent/jdyy-patients-entities" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/patients-parent/jdyy-patients-rest" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/stat-parent" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/stat-parent/jdyy-stat-api" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/stat-parent/jdyy-stat-biz" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/stat-parent/jdyy-stat-dao" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/stat-parent/jdyy-stat-entities" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/stat-parent/jdyy-stat-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/statistics-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/statistics-parent/jdyy-statistics-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/statistics-parent/jdyy-statistics-biz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/statistics-parent/jdyy-statistics-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/statistics-parent/jdyy-statistics-entities" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/statistics-parent/jdyy-statistics-rest" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/surgical-parent" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/surgical-parent/jdyy-surgical-api" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/surgical-parent/jdyy-surgical-biz" charset="UTF-8" />
@@ -35,6 +41,18 @@
     <file url="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-dao" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-entities" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/system-parent/dict-parent/jdyy-system-dict-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/system-parent/district-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/system-parent/district-parent/jdyy-system-district-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/system-parent/district-parent/jdyy-system-district-biz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/system-parent/district-parent/jdyy-system-district-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/system-parent/district-parent/jdyy-system-district-entities" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/system-parent/district-parent/jdyy-system-district-rest" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/visit-parent" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/visit-parent/jdyy-visit-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/visit-parent/jdyy-visit-biz" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/visit-parent/jdyy-visit-dao" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/visit-parent/jdyy-visit-entities" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/visit-parent/jdyy-visit-rest" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

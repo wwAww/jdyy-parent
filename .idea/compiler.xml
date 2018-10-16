@@ -6,17 +6,27 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="jdyy-cascade-api" />
+        <module name="jdyy-cascade-biz" />
+        <module name="jdyy-cascade-dao" />
+        <module name="jdyy-cascade-entities" />
+        <module name="jdyy-cascade-rest" />
         <module name="jdyy-core-etc" />
+        <module name="jdyy-diagnosis-api" />
+        <module name="jdyy-diagnosis-biz" />
+        <module name="jdyy-diagnosis-dao" />
+        <module name="jdyy-diagnosis-entities" />
+        <module name="jdyy-diagnosis-rest" />
         <module name="jdyy-patients-api" />
         <module name="jdyy-patients-biz" />
         <module name="jdyy-patients-dao" />
         <module name="jdyy-patients-entities" />
         <module name="jdyy-patients-rest" />
-        <module name="jdyy-stat-api" />
-        <module name="jdyy-stat-biz" />
-        <module name="jdyy-stat-dao" />
-        <module name="jdyy-stat-entities" />
-        <module name="jdyy-stat-rest" />
+        <module name="jdyy-statistics-api" />
+        <module name="jdyy-statistics-biz" />
+        <module name="jdyy-statistics-dao" />
+        <module name="jdyy-statistics-entities" />
+        <module name="jdyy-statistics-rest" />
         <module name="jdyy-surgical-api" />
         <module name="jdyy-surgical-biz" />
         <module name="jdyy-surgical-dao" />
@@ -27,17 +37,17 @@
         <module name="jdyy-system-dict-dao" />
         <module name="jdyy-system-dict-entities" />
         <module name="jdyy-system-dict-rest" />
+        <module name="jdyy-system-district-api" />
+        <module name="jdyy-system-district-biz" />
+        <module name="jdyy-system-district-dao" />
+        <module name="jdyy-system-district-entities" />
+        <module name="jdyy-system-district-rest" />
+        <module name="jdyy-visit-api" />
+        <module name="jdyy-visit-biz" />
+        <module name="jdyy-visit-dao" />
+        <module name="jdyy-visit-entities" />
+        <module name="jdyy-visit-rest" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="analyse-parent" target="1.8" />
-      <module name="entry-parent" target="1.8" />
-      <module name="img-api" target="1.8" />
-      <module name="img-biz" target="1.8" />
-      <module name="img-dao" target="1.8" />
-      <module name="img-entities" target="1.8" />
-      <module name="img-parent" target="1.8" />
-      <module name="img-rest" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>
