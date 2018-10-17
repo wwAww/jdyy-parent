@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+    <reference id="IKneeBeanService" interface="com.kalix.jdyy.investigation.api.biz.IKneeBeanService"/>
+    <camelContext id="jdyyKneeCamel" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <restConfiguration component="servlet" bindingMode="json">
+            <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
+        </restConfiguration>
+
+        <rest path="/jdyy/knees" consumes="application/json;charset=utf-8" produces="application/json">
+            <description>audit rest service</description>
+
+            <get id="route-getAllJdyyKnees" outType="com.kalix.framework.core.api.persistence.JsonData">
+                <description>Find all JdyyKnee</description>
+                <to uri="bean:IKneeBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
+            </get>
+
+            <post id="route-addJdyyKnee" type="com.kalix.jdyy.investigation.entities.KneeBean"
+                  outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Create a JdyyKnee</description>
+                <to uri="bean:IKneeBeanService?method=saveEntity"/>
+            </post>
+        </rest>
+
+        <rest path="/jdyy/knees/{id}" consumes="application/json;charset=utf-8" produces="application/json">
+            <get id="route-getJdyyKnee" type="com.kalix.jdyy.investigation.entities.KneeBean">
+                <description>Find JdyyKnee by id</description>
+                <to uri="bean:IKneeBeanService?method=getEntity(${header.id})"/>
+            </get>
+
+            <put id="route-updateJdyyKnee" type="com.kalix.jdyy.investigation.entities.KneeBean"
+                 outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Updates a JdyyKnee</description>
+                <to uri="bean:IKneeBeanService?method=updateEntity"/>
+            </put>
+
+            <delete id="route-deleteJdyyKnee"
+                    outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Delete a JdyyKnee</description>
+                <to uri="bean:IKneeBeanService?method=deleteEntity(${header.id})"/>
+            </delete>
+        </rest>
+        <!--<rest path="/jdyy/patientss/cache/list" consumes="application/json;charset=utf-8"
+              produces="application/json;charset=utf-8">
+            <get id="route-getAllJdyyPatientsInCache">
+                <description>Find all patientss</description>
+                <to uri="bean:jdyyPatientsBeanService?method=getAllEntity()"/>
+            </get>
+        </rest>
+        <rest path="/jdyy/patientss/types/list" consumes="application/json;charset=utf-8"
+              produces="application/json;charset=utf-8">
+            <get id="route-getAllJdyyPatientsTypes">
+                <description>Find all patientss</description>
+                <to uri="bean:jdyyPatientsBeanService?method=getPatientsTypes(${header.query})"/>
+            </get>
+        </rest>-->
+
+    </camelContext>
+</blueprint>

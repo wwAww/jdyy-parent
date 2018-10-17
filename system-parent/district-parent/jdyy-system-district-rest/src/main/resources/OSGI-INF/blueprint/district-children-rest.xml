@@ -3,7 +3,7 @@
            xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
            xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
        http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
-    <!--//<reference id="columnService" interface="com.kalix.jdyy.cms.api.biz.IColumnBeanService"/>-->
+    <!--<reference id="districtService" interface="com.kalix.jdyy.system.district.api.biz.IDistrictBeanService"/>-->
     <camelContext id="districtCamelExt" xmlns="http://camel.apache.org/schema/blueprint">
         <restConfiguration component="servlet" bindingMode="json">
             <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
@@ -13,7 +13,7 @@
             <!-- this is a rest GET to view a template by the given id -->
             <get id="route-getDistrictForCascader" outType="com.kalix.framework.core.api.persistence.JsonData">
                 <description>Find Column And Menu</description>
-                <to uri="bean:districtService?method=getDistrictForCascader()"/>
+                <to uri="bean:districtService?method=getDistrictForCascader"/>
             </get>
         </rest>
     </camelContext>

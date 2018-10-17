@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd">
+
+    <!--<reference id="cacheManager" interface="com.kalix.framework.core.api.cache.ICacheManager"/>-->
+    <!--<reference id="shiroService" interface="com.kalix.framework.core.api.security.IShiroService"/>-->
+    <reference id="jdyyHipBeanDao" interface="com.kalix.jdyy.investigation.api.dao.IHipBeanDao"/>
+
+    <bean id="jdyyHipBeanServiceImpl" class="com.kalix.jdyy.investigation.biz.HipBeanServiceImpl">
+        <property name="dao" ref="jdyyHipBeanDao"/>
+    </bean>
+
+    <service id="jdyyHipBeanService" interface="com.kalix.jdyy.investigation.api.biz.IHipBeanService"
+             ref="jdyyHipBeanServiceImpl">
+    </service>
+
+    <reference id="jdyyKneeBeanDao" interface="com.kalix.jdyy.investigation.api.dao.IKneeBeanDao"/>
+
+    <bean id="jdyyKneeBeanServiceImpl" class="com.kalix.jdyy.investigation.biz.KneeBeanServiceImpl">
+        <property name="dao" ref="jdyyKneeBeanDao"/>
+    </bean>
+
+    <service id="jdyyKneeBeanService" interface="com.kalix.jdyy.investigation.api.biz.IKneeBeanService"
+             ref="jdyyKneeBeanServiceImpl">
+    </service>
+</blueprint>
