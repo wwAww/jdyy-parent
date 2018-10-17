@@ -18,6 +18,12 @@
                 <description>Find all JdyyVisits</description>
                 <to uri="bean:IVisitBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
             </get>
+            <!--获取诊断饼状图数据-->
+            <get id="route-getPieData"
+                 outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getPieData">
+                <description>Find numbers by VisitDTO</description>
+                <to uri="bean:IVisitBeanService?method=getPieData(${header.diaColumn})"/>
+            </get>
 
             <post id="route-addJdyyVisits" type="com.kalix.jdyy.visit.entities.VisitBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">

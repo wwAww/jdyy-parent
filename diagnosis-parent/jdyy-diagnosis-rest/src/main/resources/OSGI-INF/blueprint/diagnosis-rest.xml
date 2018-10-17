@@ -24,6 +24,11 @@
                 <description>Finde all Diagnosis</description>
                 <to uri="bean:diagnosisBeanService?method=getDiaCascader"/>
             </get>
+            <!--获取统计分析中诊断饼状图列表数据-->
+            <get id="route-getDiaColumn" outType="java.util.Arrays" uri="/getDiaColumn">
+                <description>Finde all DiaColumn</description>
+                <to uri="bean:diagnosisBeanService?method=getDiaColumn"/>
+            </get>
             <post id="route-addDiagnosis" type="com.kalix.jdyy.diagnosis.entities.DiagnosisBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Create a Diagnosis</description>

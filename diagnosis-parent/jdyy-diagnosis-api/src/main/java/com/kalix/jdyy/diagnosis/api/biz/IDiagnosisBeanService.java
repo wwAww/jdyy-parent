@@ -10,4 +10,6 @@ public interface IDiagnosisBeanService extends IBizService<DiagnosisBean> {
     DiagnosisTreeDTO getAllDiaByParentId(long parentId);
 
     JsonData getDiaCascader();
+    // 获取统计分析中诊断饼状图列表数据
+    String[] getDiaColumn();
 }
