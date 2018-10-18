@@ -24,6 +24,11 @@
                 <description>Finde all Surgical</description>
                 <to uri="bean:surgicalBeanService?method=getSurCascader"/>
             </get>
+            <!--获取统计分析中诊断饼状图列表数据-->
+            <get id="route-getSurColumn" outType="java.util.Arrays" uri="/getSurColumn">
+                <description>Finde all DiaColumn</description>
+                <to uri="bean:surgicalBeanService?method=getSurColumn"/>
+            </get>
             <post id="route-addSurgical" type="com.kalix.jdyy.surgical.entities.SurgicalBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Create a Surgical</description>

@@ -1,6 +1,5 @@
 package com.kalix.jdyy.diagnosis.biz;
 
-import com.google.gson.Gson;
 import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
 import com.kalix.jdyy.diagnosis.api.biz.IDiagnosisBeanService;
@@ -12,11 +11,8 @@ import org.dozer.DozerBeanMapper;
 import org.dozer.Mapper;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBeanDao,DiagnosisBean> implements IDiagnosisBeanService {
     public DiagnosisBeanServiceImpl() {
@@ -53,6 +49,7 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
         }
         return root;
     }
+
     /**
      * 递归函数加载子节点
      * @param root
@@ -79,7 +76,6 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
      * @param elements
      * @return
      */
-
     private List<DiagnosisBean> getRootElements(List<DiagnosisBean> elements) {
         List<DiagnosisBean> roots=new ArrayList<DiagnosisBean>();
         for (DiagnosisBean element : elements) {
@@ -94,7 +90,6 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
      * 获取诊断信息，并以级联形式返回数据
      * @return
      */
-
     public JsonData getDiaCascader() {
         List<DiagnosisBean> qlist = dao.find("select d from DiagnosisBean d");
         List<DiagnosisBean> listParents = qlist.stream().filter(db-> db.getParentId()==-1).collect(Collectors.toList());
@@ -135,7 +130,6 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
     /**
      * 递归方法获取级联子节点
      */
-
     private List<DiagnosisDTO> getDiagnosisChilden(DiagnosisBean one, List<DiagnosisBean> qlist) {
         List<DiagnosisDTO> list = new ArrayList<>();
         for (DiagnosisBean db : qlist) {
@@ -151,5 +145,20 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
             }
         }
         return list;
+    }
+
+    /**
+     * 获取统计分析中诊断饼状图列表数据
+     * @return
+     */
+    @Override
+    public String[] getDiaColumn() {
+        List<DiagnosisBean> list = dao.find("select d from DiagnosisBean d where d.parentId = -1");
+        String str = "";
+        for (DiagnosisBean dia : list) {
+            str += dia.getContent() + ',';
+        }
+        String[] strs = str.trim().split(",");
+        return strs;
     }
 }

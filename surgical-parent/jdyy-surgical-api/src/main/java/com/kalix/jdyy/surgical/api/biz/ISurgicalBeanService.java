@@ -10,6 +10,8 @@ public interface ISurgicalBeanService extends IBizService<SurgicalBean> {
     SurgicalTreeDTO getAllSurByParentId(long parentId);
 
     JsonData getSurCascader();
+    // 获取统计分析中诊断饼状图列表数据
+    String[] getSurColumn();
     // 术式删除节点以及子节点的功能
     void deleteAllSur(long id);
 }

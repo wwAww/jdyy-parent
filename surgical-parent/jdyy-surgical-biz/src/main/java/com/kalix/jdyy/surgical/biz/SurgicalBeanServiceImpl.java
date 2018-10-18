@@ -109,6 +109,21 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
     }
 
     /**
+     * 获取统计分析中诊断饼状图列表数据
+     * @return
+     */
+    @Override
+    public String[] getSurColumn() {
+        List<SurgicalBean> list = dao.find("select s from SurgicalBean s where s.parentId = -1");
+        String str = "";
+        for (SurgicalBean dia : list) {
+            str += dia.getContent() + ',';
+        }
+        String[] strs = str.trim().split(",");
+        return strs;
+    }
+
+    /**
      *术式删除节点以及子节点的功能
      * @param id
      */
