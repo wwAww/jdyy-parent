@@ -13,20 +13,52 @@ import java.util.List;
 public class VisitBeanServiceImpl extends GenericBizServiceImpl<IVisitBeanDao, VisitBean> implements IVisitBeanService {
 
     /**
-     * 获取诊断饼状图数据
+     *
      * @param diaColumn 饼状图数据列表
-     * @return
+     * @return 获取诊断饼状图数据
      */
     @Override
-    public JsonData getPieData(String diaColumn) {
+    public JsonData getDiaData(String diaColumn) {
         List<VisitBean> vlist = dao.find("select v from VisitBean v");
         String[] strs = diaColumn.split(",");
         List<pieDataDTO> list = new ArrayList<>();
         for (Integer i = 0; i < strs.length; i++) {
             Integer num = 0;
             for (VisitBean vb : vlist) {
-                if (strs[i] == vb.getDiagnosis().split(",")[0]) {
-                    num++;
+                if (vb.getDiagnosis() != null) {
+                    if (vb.getDiagnosis().split(",")[0].equals(strs[i])) {
+                        num++;
+                    }
+                }
+            }
+            pieDataDTO pd = new pieDataDTO();
+            pd.setName(strs[i]);
+            pd.setValue(num);
+            list.add(pd);
+        }
+        JsonData jsondata = new JsonData();
+        jsondata.setData(list);
+        jsondata.setTotalCount((long)list.size());
+        return jsondata;
+    }
+
+    /**
+     *
+     * @param surColumn 饼状图数据列表
+     * @return 获取术式饼状图数据
+     */
+    @Override
+    public JsonData getSurData(String surColumn) {
+        List<VisitBean> vlist = dao.find("select v from VisitBean v");
+        String[] strs = surColumn.split(",");
+        List<pieDataDTO> list = new ArrayList<>();
+        for (Integer i = 0; i < strs.length; i++) {
+            Integer num = 0;
+            for (VisitBean vb : vlist) {
+                if (vb.getSurgical()!=null) {
+                    if (vb.getSurgical().split(",")[0].equals(strs[i])) {
+                        num++;
+                    }
                 }
             }
             pieDataDTO pd = new pieDataDTO();
