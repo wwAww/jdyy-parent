@@ -6,5 +6,7 @@ import com.kalix.jdyy.visit.entities.VisitBean;
 
 public interface IVisitBeanService extends IBizService<VisitBean> {
     // 获取诊断饼状图数据
-    JsonData getPieData(String diaColumn);
+    JsonData getDiaData(String diaColumn);
+    // 获取术式饼状图数据
+    JsonData getSurData(String surColumn);
 }

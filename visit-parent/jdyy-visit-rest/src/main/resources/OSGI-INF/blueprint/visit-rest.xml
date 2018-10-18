@@ -19,10 +19,16 @@
                 <to uri="bean:IVisitBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
             </get>
             <!--获取诊断饼状图数据-->
-            <get id="route-getPieData"
-                 outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getPieData">
+            <get id="route-getDiaData"
+                 outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getDiaData">
+                <description>Find Pienums by VisitDTO</description>
+                <to uri="bean:IVisitBeanService?method=getDiaData(${header.diaColumn})"/>
+            </get>
+            <!--获取术式饼状图数据-->
+            <get id="route-getSurData"
+                 outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getSurData">
                 <description>Find numbers by VisitDTO</description>
-                <to uri="bean:IVisitBeanService?method=getPieData(${header.diaColumn})"/>
+                <to uri="bean:IVisitBeanService?method=getSurData(${header.surColumn})"/>
             </get>
 
             <post id="route-addJdyyVisits" type="com.kalix.jdyy.visit.entities.VisitBean"
