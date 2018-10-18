@@ -109,6 +109,26 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
     }
 
     /**
+     *术式删除节点以及子节点的功能
+     * @param id
+     */
+    @Override
+    public void deleteAllSur(long id) {
+        dao.remove(id);
+        deleteAllChilders(id);
+    }
+    //用递归的方法
+    public void deleteAllChilders(long id){
+        List<SurgicalBean> list=dao.find("select s from SurgicalBean s ");
+        for(SurgicalBean sur:list){
+            if (sur.getParentId() == id){
+                dao.remove(sur.getId());
+                deleteAllChilders(sur.getId());
+            }
+        }
+    }
+
+    /**
      * 递归方法获取级联子节点
      */
 

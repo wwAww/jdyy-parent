@@ -36,10 +36,15 @@
                 <description>Updates a Diagnosis</description>
                 <to uri="bean:diagnosisBeanService?method=updateEntity"/>
             </put>
-            <delete id="route-deleteDiagnosis"
-                    outType="com.kalix.framework.core.api.persistence.JsonStatus">
+            <!--<delete id="route-deleteDiagnosis"-->
+                    <!--outType="com.kalix.framework.core.api.persistence.JsonStatus">-->
+                <!--<description>Delete a Diagnosis</description>-->
+                <!--<to uri="bean:diagnosisBeanService?method=deleteEntity(${header.id})"/>-->
+            <!--</delete>-->
+            <!--诊断删除节点以及子节点的功能-->
+            <delete id="route-deleteDiagnosis">
                 <description>Delete a Diagnosis</description>
-                <to uri="bean:diagnosisBeanService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:diagnosisBeanService?method=deleteAllDia(${header.id})"/>
             </delete>
         </rest>
     </camelContext>

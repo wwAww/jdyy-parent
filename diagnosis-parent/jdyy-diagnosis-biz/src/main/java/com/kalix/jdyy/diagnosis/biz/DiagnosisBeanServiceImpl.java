@@ -113,6 +113,26 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
     }
 
     /**
+     *诊断删除节点以及子节点的功能
+     * @param id
+     */
+    @Override
+    public void deleteAllDia(long id) {
+        dao.remove(id);
+        deleteAllChildens(id);
+    }
+    //用递归的方法
+    private void deleteAllChildens(long id) {
+        List<DiagnosisBean> list = dao.find("select d from DiagnosisBean d");
+        for (DiagnosisBean dia : list) {
+            if (dia.getParentId() == id) {
+                dao.remove(dia.getId());
+                deleteAllChildens(dia.getId());
+            }
+        }
+    }
+
+    /**
      * 递归方法获取级联子节点
      */
 

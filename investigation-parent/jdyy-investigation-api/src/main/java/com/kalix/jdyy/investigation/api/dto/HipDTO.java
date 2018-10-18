@@ -1,19 +1,12 @@
-package com.kalix.jdyy.investigation.entities;
+package com.kalix.jdyy.investigation.api.dto;
 
-import com.kalix.framework.core.api.persistence.PersistentEntity;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-/**
- * @author
- * @create
- * @desc 全髋关节调查实体类
- **/
-
-@Entity
-@Table(name = "jdyy_hip")
-public class HipBean extends PersistentEntity {
+public class HipDTO {
+    private String name;
+    private String sex;
+    private String age;
+    private String telephonePerson;
+    private String address;
+    private Integer hospitalNumber;
     private Integer patientsId;// 病员ID
     private Integer orderNumber;// 研究序号
     private String date;// 日期
@@ -75,7 +68,7 @@ public class HipBean extends PersistentEntity {
     private String cModel;// 加减
     private String Inclusiveness;// 包容
     private String stable1;// 稳定性
-        // 摆放角度
+    // 摆放角度
     private String ectropion;// 外翻
     private String forward;// 前倾
     private String inAngle;// 聚乙烯衬垫植入角度
@@ -93,22 +86,22 @@ public class HipBean extends PersistentEntity {
     private String Osteotomy;// 股骨端截骨
     private String Complication;// 并发症
     private String defect1;// 股骨缺陷
-            // 髋臼缺陷
+    // 髋臼缺陷
     private String centerType;// 中心型
     private String periphery;// 髋臼周边
-            // 髋臼植骨
+    // 髋臼植骨
     private String structuralBone1;// 结构性植骨
     private String screw;// 螺钉固定
     private String suppress1;// 打压植骨
-            // 股骨端植骨
+    // 股骨端植骨
     private String structuralBone2;// 结构性植骨
     private String suppress2;// 打压植骨
     // 术后稳定性
-        // 后方稳定性
+    // 后方稳定性
     private String frontA;// 屈曲
     private String frontB;// 内收
     private String frontC;// 内旋
-        // 前方稳定性
+    // 前方稳定性
     private String afterA;// 伸展
     private String afterB;// 外旋
     private String resection;// 内收肌肌腱切除
@@ -119,7 +112,7 @@ public class HipBean extends PersistentEntity {
     private String singleAbduction;// 单拐行走
     private String singleDay;// 术后
     private String leaveHospital;// 出院
-        // 出院时关节活动角度
+    // 出院时关节活动角度
     private String angleA;// 屈曲
     private String angleB;// 外展
     private String angleC;// 内旋
@@ -190,6 +183,54 @@ public class HipBean extends PersistentEntity {
     private String harD11;// 骨水泥金属界面透亮区
     private String harD12;// 骨水泥骨折（） *
     private String harD13;// 涂层脱落*
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getTelephonePerson() {
+        return telephonePerson;
+    }
+
+    public void setTelephonePerson(String telephonePerson) {
+        this.telephonePerson = telephonePerson;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getHospitalNumber() {
+        return hospitalNumber;
+    }
+
+    public void setHospitalNumber(Integer hospitalNumber) {
+        this.hospitalNumber = hospitalNumber;
+    }
 
     public Integer getPatientsId() {
         return patientsId;

@@ -10,4 +10,6 @@ public interface IDiagnosisBeanService extends IBizService<DiagnosisBean> {
     DiagnosisTreeDTO getAllDiaByParentId(long parentId);
 
     JsonData getDiaCascader();
+    // 诊断删除节点以及子节点的功能
+    void deleteAllDia(long id);
 }

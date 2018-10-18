@@ -4,7 +4,7 @@ import com.kalix.framework.core.api.persistence.PersistentEntity;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-
+// 病员基本信息
 @Entity
 @Table(name = "jdyy_patients")
 public class PatientsBean extends PersistentEntity {
@@ -12,8 +12,8 @@ public class PatientsBean extends PersistentEntity {
     private String sex;// 性别
     private String brith;// 出生日期
     private Integer age;// 年龄
-    private Integer idCard;// 身份证号
-    private String bedNumber;// 床位号
+    private String idCard;// 身份证号
+    private Integer bedNumber;// 床位号你
     private Integer hospitalNumber;// 住院号
     private String directorDoctor;// 主管医生
     private String dateAdmission;//入院日期
@@ -24,11 +24,11 @@ public class PatientsBean extends PersistentEntity {
     private Integer bloodPressure;// 血压
     private String specialDisorders;// 特殊疾病
     private String descriptionSpecialDisease;// 特殊疾病描述
-    private Integer allergicHistory;// 过敏史
+    private String allergicHistory;// 过敏史
     private String medicalCategory;// 医疗类别
-    private Integer whetherDischarge;// 是否出院
-    private Integer telephonePerson;// 本人联系方式
-    private Integer familyPhone;// 家属联系方式
+    private String whetherDischarge;// 是否出院
+    private String telephonePerson;// 本人联系方式
+    private String familyPhone;// 家属联系方式
     private String address;// 省市区
     private String completeAddress;// 详细地址
     private String remarks;// 备注
@@ -70,19 +70,19 @@ public class PatientsBean extends PersistentEntity {
         this.age = age;
     }
 
-    public Integer getIdCard() {
+    public String getIdCard() {
         return idCard;
     }
 
-    public void setIdCard(Integer idCard) {
+    public void setIdCard(String idCard) {
         this.idCard = idCard;
     }
 
-    public String getBedNumber() {
+    public Integer getBedNumber() {
         return bedNumber;
     }
 
-    public void setBedNumber(String bedNumber) {
+    public void setBedNumber(Integer bedNumber) {
         this.bedNumber = bedNumber;
     }
 
@@ -166,11 +166,11 @@ public class PatientsBean extends PersistentEntity {
         this.descriptionSpecialDisease = descriptionSpecialDisease;
     }
 
-    public Integer getAllergicHistory() {
+    public String getAllergicHistory() {
         return allergicHistory;
     }
 
-    public void setAllergicHistory(Integer allergicHistory) {
+    public void setAllergicHistory(String allergicHistory) {
         this.allergicHistory = allergicHistory;
     }
 
@@ -182,27 +182,27 @@ public class PatientsBean extends PersistentEntity {
         this.medicalCategory = medicalCategory;
     }
 
-    public Integer getWhetherDischarge() {
+    public String getWhetherDischarge() {
         return whetherDischarge;
     }
 
-    public void setWhetherDischarge(Integer whetherDischarge) {
+    public void setWhetherDischarge(String whetherDischarge) {
         this.whetherDischarge = whetherDischarge;
     }
 
-    public Integer getTelephonePerson() {
+    public String getTelephonePerson() {
         return telephonePerson;
     }
 
-    public void setTelephonePerson(Integer telephonePerson) {
+    public void setTelephonePerson(String telephonePerson) {
         this.telephonePerson = telephonePerson;
     }
 
-    public Integer getFamilyPhone() {
+    public String getFamilyPhone() {
         return familyPhone;
     }
 
-    public void setFamilyPhone(Integer familyPhone) {
+    public void setFamilyPhone(String familyPhone) {
         this.familyPhone = familyPhone;
     }
 
@@ -269,5 +269,4 @@ public class PatientsBean extends PersistentEntity {
     public void setAdduction(String adduction) {
         this.adduction = adduction;
     }
-
 }

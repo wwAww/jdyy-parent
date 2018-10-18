@@ -36,11 +36,17 @@
                 <description>Updates a Surgical</description>
                 <to uri="bean:surgicalBeanService?method=updateEntity"/>
             </put>
-            <delete id="route-deleteSurgical"
-                    outType="com.kalix.framework.core.api.persistence.JsonStatus">
+            <!--<delete id="route-deleteSurgical"-->
+                    <!--outType="com.kalix.framework.core.api.persistence.JsonStatus">-->
+                <!--<description>Delete a Surgical</description>-->
+                <!--<to uri="bean:surgicalBeanService?method=deleteEntity(${header.id})"/>-->
+            <!--</delete>-->
+            <!--术式删除节点以及子节点的功能-->
+            <delete id="route-deleteSurgical">
                 <description>Delete a Surgical</description>
-                <to uri="bean:surgicalBeanService?method=deleteEntity(${header.id})"/>
+                <to uri="bean:surgicalBeanService?method=deleteAllSur(${header.id})"/>
             </delete>
+
         </rest>
     </camelContext>
 </blueprint>

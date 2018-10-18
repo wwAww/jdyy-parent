@@ -1,18 +1,12 @@
-package com.kalix.jdyy.investigation.entities;
+package com.kalix.jdyy.investigation.api.dto;
 
-import com.kalix.framework.core.api.persistence.PersistentEntity;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-/**
- * @author
- * @create
- * @desc 全膝关节调查实体类
- **/
-@Entity
-@Table(name = "jdyy_knee")
-public class KneeBean extends PersistentEntity {
+public class KneeDTO {
+    private String name;
+    private String sex;
+    private String age;
+    private String telephonePerson;
+    private String address;
+    private Integer hospitalNumber;
     private Integer patientsId;// 病员ID
     private Integer orderNumber;// 研究序号
     private String date;// 日期
@@ -224,6 +218,54 @@ public class KneeBean extends PersistentEntity {
     private String loose;// 松动（股骨/胫骨/髌骨）
     private String polyethyleneLiner;// 聚乙烯内衬
     private String osteolysis;// 骨溶解
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    public String getTelephonePerson() {
+        return telephonePerson;
+    }
+
+    public void setTelephonePerson(String telephonePerson) {
+        this.telephonePerson = telephonePerson;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getHospitalNumber() {
+        return hospitalNumber;
+    }
+
+    public void setHospitalNumber(Integer hospitalNumber) {
+        this.hospitalNumber = hospitalNumber;
+    }
 
     public Integer getPatientsId() {
         return patientsId;
@@ -976,7 +1018,6 @@ public class KneeBean extends PersistentEntity {
     public void setDepth2(String depth2) {
         this.depth2 = depth2;
     }
-
 
     public String getProcessingScheme() {
         return processingScheme;
