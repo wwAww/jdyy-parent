@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+           xsi:schemaLocation="http://www.osgi.org/xmlns/blueprint/v1.0.0 http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+       http://camel.apache.org/schema/blueprint http://camel.apache.org/schema/blueprint/camel-blueprint.xsd">
+
+    <reference id="IHipBeanService" interface="com.kalix.jdyy.investigation.api.biz.IHipBeanService"/>
+    <camelContext id="jdyyHipCamel" xmlns="http://camel.apache.org/schema/blueprint">
+
+        <restConfiguration component="servlet" bindingMode="json">
+            <dataFormatProperty key="prettyPrint" value="${rest.pretty}"/>
+        </restConfiguration>
+
+        <rest path="/jdyy/hips" consumes="application/json;charset=utf-8" produces="application/json">
+            <description>audit rest service</description>
+
+            <get id="route-getAllJdyyHips" outType="com.kalix.framework.core.api.persistence.JsonData">
+                <description>Find all JdyyHip</description>
+                <to uri="bean:IHipBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
+            </get>
+
+            <post id="route-addJdyyHip" type="com.kalix.jdyy.investigation.entities.HipBean"
+                  outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Create a JdyyHip</description>
+                <to uri="bean:IHipBeanService?method=saveEntity"/>
+            </post>
+        </rest>
+
+        <rest path="/jdyy/hips/{id}" consumes="application/json;charset=utf-8" produces="application/json">
+            <get id="route-getJdyyHip" type="com.kalix.jdyy.investigation.entities.HipBean">
+                <description>Find JdyyHip by id</description>
+                <to uri="bean:IHipBeanService?method=getEntity(${header.id})"/>
+            </get>
+
+            <put id="route-updateJdyyHip" type="com.kalix.jdyy.investigation.entities.HipBean"
+                 outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Updates a JdyyHip</description>
+                <to uri="bean:IHipBeanService?method=updateEntity"/>
+            </put>
+
+            <delete id="route-deleteJdyyHip"
+                    outType="com.kalix.framework.core.api.persistence.JsonStatus">
+                <description>Delete a JdyyHip</description>
+                <to uri="bean:IHipBeanService?method=deleteEntity(${header.id})"/>
+            </delete>
+        </rest>
+        <!--<rest path="/jdyy/patientss/cache/list" consumes="application/json;charset=utf-8"
+              produces="application/json;charset=utf-8">
+            <get id="route-getAllJdyyPatientsInCache">
+                <description>Find all patientss</description>
+                <to uri="bean:jdyyPatientsBeanService?method=getAllEntity()"/>
+            </get>
+        </rest>
+        <rest path="/jdyy/patientss/types/list" consumes="application/json;charset=utf-8"
+              produces="application/json;charset=utf-8">
+            <get id="route-getAllJdyyPatientsTypes">
+                <description>Find all patientss</description>
+                <to uri="bean:jdyyPatientsBeanService?method=getPatientsTypes(${header.query})"/>
+            </get>
+        </rest>-->
+
+    </camelContext>
+</blueprint>

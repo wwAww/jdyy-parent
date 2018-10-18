@@ -21,10 +21,10 @@
     </properties>
     <modules>
         <module>jdyy-investigation-entities</module>
-        <!--<module>jdyy-investigation-api</module>-->
-        <!--<module>jdyy-investigation-dao</module>-->
-        <!--<module>jdyy-investigation-biz</module>-->
-        <!--<module>jdyy-investigation-rest</module>-->
+        <module>jdyy-investigation-api</module>
+        <module>jdyy-investigation-dao</module>
+        <module>jdyy-investigation-biz</module>
+        <module>jdyy-investigation-rest</module>
     </modules>
 
     <dependencyManagement>
