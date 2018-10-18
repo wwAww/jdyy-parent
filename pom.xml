@@ -23,9 +23,8 @@
         <module>system-parent</module>
         <module>statistics-parent</module>
         <module>diagnosis-parent</module>
-        <!--<module>cascade-parent</module>-->
         <module>visit-parent</module>
-        <!--<module>investigation-parent</module>-->
+        <module>investigation-parent</module>
     </modules>
     <build>
         <plugins>
