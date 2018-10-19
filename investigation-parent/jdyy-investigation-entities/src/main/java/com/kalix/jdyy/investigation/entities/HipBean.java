@@ -14,7 +14,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "jdyy_hip")
 public class HipBean extends PersistentEntity {
-    private Integer patientsId;// 病员ID
+//    病员基本信息
+    private String name;// 姓名
+    private String sex;// 性别
+    private Integer age;// 年龄
+    private String telephonePerson;// 电话
+    private String address;// 地址
+    private Integer hospitalNumber;// 住院号
+//    调查数据
     private Integer orderNumber;// 研究序号
     private String date;// 日期
     private String position;// 部位
@@ -191,12 +198,53 @@ public class HipBean extends PersistentEntity {
     private String harD12;// 骨水泥骨折（） *
     private String harD13;// 涂层脱落*
 
-    public Integer getPatientsId() {
-        return patientsId;
+
+    public String getName() {
+        return name;
     }
 
-    public void setPatientsId(Integer patientsId) {
-        this.patientsId = patientsId;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getTelephonePerson() {
+        return telephonePerson;
+    }
+
+    public void setTelephonePerson(String telephonePerson) {
+        this.telephonePerson = telephonePerson;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Integer getHospitalNumber() {
+        return hospitalNumber;
+    }
+
+    public void setHospitalNumber(Integer hospitalNumber) {
+        this.hospitalNumber = hospitalNumber;
     }
 
     public Integer getOrderNumber() {
