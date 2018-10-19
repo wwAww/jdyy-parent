@@ -8,19 +8,28 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "jdyy_visit")
 public class VisitBean extends PersistentEntity {
-    private String pid;// 患者
+    private long pid;// 患者
+    private String pname;// 患者
     private String diagnosis;// 诊断
     private String surgical;// 术式
     private String operationDate;// 手术日期
     private String periodization;// 分期
     private String photo;// 图片
 
-    public String getPid() {
+    public long getPid() {
         return pid;
     }
 
-    public void setPid(String pid) {
+    public void setPid(long pid) {
         this.pid = pid;
+    }
+
+    public String getPname() {
+        return pname;
+    }
+
+    public void setPname(String pname) {
+        this.pname = pname;
     }
 
     public String getDiagnosis() {
