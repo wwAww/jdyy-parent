@@ -18,6 +18,11 @@
                 <description>Find all JdyyPatients</description>
                 <to uri="bean:IPatientsBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
             </get>
+            <!--获取病员信息（以el-select选择器需要的形式返回数据）-->
+            <get id="route-getPatientsBySelect" outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getDataBySelect">
+                <description>Find Patients by Select</description>
+                <to uri="bean:IPatientsBeanService?method=getDataBySelect"/>
+            </get>
 
             <post id="route-addJdyyPatients" type="com.kalix.jdyy.patients.entities.PatientsBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">
