@@ -18,6 +18,11 @@
                 <description>Find all JdyyVisits</description>
                 <to uri="bean:IVisitBeanService?method=getAllEntityByQuery(${header.page},${header.limit},${header.jsonStr},${header.sort})"/>
             </get>
+            <!--根据userId获取该用户的就诊信息-->
+            <get id="route-getAllByUserId" uri="/getAllByUserId" outType="com.kalix.framework.core.api.persistence.JsonData">
+                <description>Find all JdyyVisits</description>
+                <to uri="bean:IVisitBeanService?method=getAllByUserId(${header.userId})"/>
+            </get>
             <!--获取诊断饼状图数据-->
             <get id="route-getDiaData"
                  outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getDiaData">

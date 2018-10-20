@@ -71,4 +71,18 @@ public class VisitBeanServiceImpl extends GenericBizServiceImpl<IVisitBeanDao, V
         jsondata.setTotalCount((long)list.size());
         return jsondata;
     }
+
+    /**
+     *
+     * @return 根据UserId获取该用户就诊信息
+     */
+    @Override
+    public JsonData getAllByUserId(long userId) {
+        String sql = "select v from VisitBean v where v.pid=" + userId;
+        List<VisitBean> list = dao.find(sql);
+        JsonData jsonData = new JsonData();
+        jsonData.setTotalCount((long)list.size());
+        jsonData.setData(list);
+        return jsonData;
+    }
 }
