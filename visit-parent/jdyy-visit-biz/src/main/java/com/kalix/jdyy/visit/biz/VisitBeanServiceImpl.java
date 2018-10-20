@@ -24,10 +24,12 @@ public class VisitBeanServiceImpl extends GenericBizServiceImpl<IVisitBeanDao, V
         List<pieDataDTO> list = new ArrayList<>();
         for (Integer i = 0; i < strs.length; i++) {
             Integer num = 0;
-            for (VisitBean vb : vlist) {
-                if (vb.getDiagnosis() != null) {
-                    if (vb.getDiagnosis().split(",")[0].equals(strs[i])) {
-                        num++;
+            if (vlist.size() != 0) {
+                for (VisitBean vb : vlist) {
+                    if (vb.getDiagnosis() != null) {
+                        if (vb.getDiagnosis().split(",")[0].equals(strs[i])) {
+                            num++;
+                        }
                     }
                 }
             }
@@ -54,10 +56,12 @@ public class VisitBeanServiceImpl extends GenericBizServiceImpl<IVisitBeanDao, V
         List<pieDataDTO> list = new ArrayList<>();
         for (Integer i = 0; i < strs.length; i++) {
             Integer num = 0;
-            for (VisitBean vb : vlist) {
-                if (vb.getSurgical()!=null) {
-                    if (vb.getSurgical().split(",")[0].equals(strs[i])) {
-                        num++;
+            if (vlist.size() != 0) {
+                for (VisitBean vb : vlist) {
+                    if (vb.getSurgical()!=null) {
+                        if (vb.getSurgical().split(",")[0].equals(strs[i])) {
+                            num++;
+                        }
                     }
                 }
             }
