@@ -10,18 +10,21 @@ import javax.persistence.Table;
 public class PatientsBean extends PersistentEntity {
     private String name;// 姓名
     private String sex;// 性别
-    private String brith;// 出生日期
     private Integer age;// 年龄
+    private String brith;// 出生日期
     private String idCard;// 身份证号
-    private Integer bedNumber;// 床位号你
-    private Integer hospitalNumber;// 住院号
+    private String bedNumber;// 床位号
+    private String medicalRecordNumber;// 病历号
+    private String hospitalNumber;// 住院号
+    private String medicalRecords;// 病历
     private String directorDoctor;// 主管医生
-    private String dateAdmission;//入院日期
+    private String dateAdmission;// 入院日期
     private String dischargeDate;// 出院日期
-    private Integer stature;// 身高
-    private Integer weight;// 体重
-    private Integer bmi;// BMI
-    private Integer bloodPressure;// 血压
+    private String stature;// 身高
+    private String weight;// 体重
+    private String bmi;// BMI
+    private String bloodPressure;// 血压
+    private String currentSituation; // 现况
     private String specialDisorders;// 特殊疾病
     private String descriptionSpecialDisease;// 特殊疾病描述
     private String allergicHistory;// 过敏史
@@ -29,14 +32,16 @@ public class PatientsBean extends PersistentEntity {
     private String whetherDischarge;// 是否出院
     private String telephonePerson;// 本人联系方式
     private String familyPhone;// 家属联系方式
-    private String address;// 省市区
-    private String completeAddress;// 详细地址
+//    private String address;// 省市区
+    private String completeAddress;// 通讯地址
     private String remarks;// 备注
-    private Integer harris;// harris评分
-    private Integer hss;// hss评分
+    private String harris;// harris评分
+    private String hss;// hss评分
     private String buckling;// 屈曲
     private String abduction;// 外展
     private String adduction;// 内收
+    private String modifyStaff;// 修改人员
+    private String heavyTime;// 重患时间
 
     public String getName() {
         return name;
@@ -54,20 +59,20 @@ public class PatientsBean extends PersistentEntity {
         this.sex = sex;
     }
 
-    public String getBrith() {
-        return brith;
-    }
-
-    public void setBrith(String brith) {
-        this.brith = brith;
-    }
-
     public Integer getAge() {
         return age;
     }
 
     public void setAge(Integer age) {
         this.age = age;
+    }
+
+    public String getBrith() {
+        return brith;
+    }
+
+    public void setBrith(String brith) {
+        this.brith = brith;
     }
 
     public String getIdCard() {
@@ -78,20 +83,36 @@ public class PatientsBean extends PersistentEntity {
         this.idCard = idCard;
     }
 
-    public Integer getBedNumber() {
+    public String getBedNumber() {
         return bedNumber;
     }
 
-    public void setBedNumber(Integer bedNumber) {
+    public void setBedNumber(String bedNumber) {
         this.bedNumber = bedNumber;
     }
 
-    public Integer getHospitalNumber() {
+    public String getMedicalRecordNumber() {
+        return medicalRecordNumber;
+    }
+
+    public void setMedicalRecordNumber(String medicalRecordNumber) {
+        this.medicalRecordNumber = medicalRecordNumber;
+    }
+
+    public String getHospitalNumber() {
         return hospitalNumber;
     }
 
-    public void setHospitalNumber(Integer hospitalNumber) {
+    public void setHospitalNumber(String hospitalNumber) {
         this.hospitalNumber = hospitalNumber;
+    }
+
+    public String getMedicalRecords() {
+        return medicalRecords;
+    }
+
+    public void setMedicalRecords(String medicalRecords) {
+        this.medicalRecords = medicalRecords;
     }
 
     public String getDirectorDoctor() {
@@ -118,36 +139,44 @@ public class PatientsBean extends PersistentEntity {
         this.dischargeDate = dischargeDate;
     }
 
-    public Integer getStature() {
+    public String getStature() {
         return stature;
     }
 
-    public void setStature(Integer stature) {
+    public void setStature(String stature) {
         this.stature = stature;
     }
 
-    public Integer getWeight() {
+    public String getWeight() {
         return weight;
     }
 
-    public void setWeight(Integer weight) {
+    public void setWeight(String weight) {
         this.weight = weight;
     }
 
-    public Integer getBmi() {
+    public String getBmi() {
         return bmi;
     }
 
-    public void setBmi(Integer bmi) {
+    public void setBmi(String bmi) {
         this.bmi = bmi;
     }
 
-    public Integer getBloodPressure() {
+    public String getBloodPressure() {
         return bloodPressure;
     }
 
-    public void setBloodPressure(Integer bloodPressure) {
+    public void setBloodPressure(String bloodPressure) {
         this.bloodPressure = bloodPressure;
+    }
+
+    public String getCurrentSituation() {
+        return currentSituation;
+    }
+
+    public void setCurrentSituation(String currentSituation) {
+        this.currentSituation = currentSituation;
     }
 
     public String getSpecialDisorders() {
@@ -206,14 +235,6 @@ public class PatientsBean extends PersistentEntity {
         this.familyPhone = familyPhone;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public String getCompleteAddress() {
         return completeAddress;
     }
@@ -230,19 +251,19 @@ public class PatientsBean extends PersistentEntity {
         this.remarks = remarks;
     }
 
-    public Integer getHarris() {
+    public String getHarris() {
         return harris;
     }
 
-    public void setHarris(Integer harris) {
+    public void setHarris(String harris) {
         this.harris = harris;
     }
 
-    public Integer getHss() {
+    public String getHss() {
         return hss;
     }
 
-    public void setHss(Integer hss) {
+    public void setHss(String hss) {
         this.hss = hss;
     }
 
@@ -268,5 +289,21 @@ public class PatientsBean extends PersistentEntity {
 
     public void setAdduction(String adduction) {
         this.adduction = adduction;
+    }
+
+    public String getModifyStaff() {
+        return modifyStaff;
+    }
+
+    public void setModifyStaff(String modifyStaff) {
+        this.modifyStaff = modifyStaff;
+    }
+
+    public String getHeavyTime() {
+        return heavyTime;
+    }
+
+    public void setHeavyTime(String heavyTime) {
+        this.heavyTime = heavyTime;
     }
 }
