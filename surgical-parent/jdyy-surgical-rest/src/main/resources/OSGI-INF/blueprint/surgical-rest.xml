@@ -29,6 +29,11 @@
                 <description>Finde all DiaColumn</description>
                 <to uri="bean:surgicalBeanService?method=getSurColumn"/>
             </get>
+            <!--计算当前父节点下的节点的最大代码（code）返回处理后的新code-->
+            <get id="route-getCodeByPid" outType="java.lang.String" uri="/getCodeByPid">
+                <description>Finde code By ParentID</description>
+                <to uri="bean:surgicalBeanService?method=getCodeByPid(${header.parentId})"/>
+            </get>
             <post id="route-addSurgical" type="com.kalix.jdyy.surgical.entities.SurgicalBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Create a Surgical</description>

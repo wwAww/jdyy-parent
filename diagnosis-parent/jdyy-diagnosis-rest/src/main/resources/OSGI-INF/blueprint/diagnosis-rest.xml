@@ -20,6 +20,7 @@
                 <description>Finde all Diagnosis</description>
                 <to uri="bean:diagnosisBeanService?method=getAllDiaByParentId(${header.parentId})"/>
             </get>
+            <!--获取诊断的级联数据-->
             <get id="route-getDiaById" outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getDiaCascader">
                 <description>Finde all Diagnosis</description>
                 <to uri="bean:diagnosisBeanService?method=getDiaCascader"/>
@@ -28,6 +29,11 @@
             <get id="route-getDiaColumn" outType="java.util.Arrays" uri="/getDiaColumn">
                 <description>Finde all DiaColumn</description>
                 <to uri="bean:diagnosisBeanService?method=getDiaColumn"/>
+            </get>
+            <!--计算当前父节点下的节点的最大代码（code）返回处理后的新code-->
+            <get id="route-getCodeByPid" outType="java.lang.String" uri="/getCodeByPid">
+                <description>Finde code By ParentID</description>
+                <to uri="bean:diagnosisBeanService?method=getCodeByPid(${header.parentId})"/>
             </get>
             <post id="route-addDiagnosis" type="com.kalix.jdyy.diagnosis.entities.DiagnosisBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">

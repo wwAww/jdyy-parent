@@ -132,6 +132,67 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
         dao.remove(id);
         deleteAllChilders(id);
     }
+
+    /**
+     * @param pid
+     * @return 计算当前父节点下的节点的最大代码（code）返回处理后的新code
+     */
+    @Override
+    public String getCodeByPid(long pid) {
+        List<SurgicalBean> list = dao.find("select s from SurgicalBean s where s.parentId=?1", pid);
+        Integer num = getLevelByPid(pid, 1);
+        if (pid != -1) {
+            SurgicalBean sur = dao.get(pid);
+            StringBuilder code = new StringBuilder(sur.getCode());
+            Integer codeNum = 0;
+            if (list.size() != 0) {
+                codeNum = Integer.parseInt(list.get(0).getCode().substring((num-1)*2, num*2));
+                for (SurgicalBean db : list) {
+                    if (codeNum < Integer.parseInt(db.getCode().substring(num*2-2, num*2))) {
+                        codeNum = Integer.parseInt(db.getCode().substring(num*2-2, num*2));
+                    }
+                }
+            }
+            codeNum = codeNum + 1;
+            if (codeNum < 10) {
+                code = code.replace((num-1)*2, num*2, "0" + codeNum);
+                return code + "";
+            }else {
+                code = code.replace((num-1)*2, num*2, codeNum.toString());
+                return code + "";
+            }
+        } else {
+            Integer codeNum = 0;
+            if (list.size() != 0) {
+                codeNum = Integer.parseInt(list.get(0).getCode().substring((num-1)*2, num*2));
+                for (SurgicalBean db : list) {
+                    if (codeNum < Integer.parseInt(db.getCode().substring(num*2-2, num*2))) {
+                        codeNum = Integer.parseInt(db.getCode().substring(num*2-2, num*2));
+                    }
+                }
+            }
+            codeNum = codeNum + 1;
+            if (codeNum < 10) {
+                String code = "0" + codeNum + "000000";
+                return code;
+            }else {
+                String code = codeNum + "000000";
+                return code;
+            }
+        }
+    }
+
+    // 用递归计数获取第几级数据
+    private Integer getLevelByPid(long pid, Integer num) {
+        if (pid == -1) {
+            return num;
+        }else {
+            SurgicalBean dia = dao.get(pid);
+            num++;
+            return getLevelByPid(dia.getParentId(), num);
+        }
+    }
+
     //用递归的方法
     public void deleteAllChilders(long id){
         List<SurgicalBean> list=dao.find("select s from SurgicalBean s ");
