@@ -11,6 +11,15 @@ public class SurgicalBean extends PersistentEntity {
     private String content;  //内容
     private long isLeaf;    //是否是子节点
     private long parentId;    //父节点
+    private Integer code;   // 诊断代码
+
+    public Integer getCode() {
+        return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
+    }
 
     public String getContent() {
         return content;
