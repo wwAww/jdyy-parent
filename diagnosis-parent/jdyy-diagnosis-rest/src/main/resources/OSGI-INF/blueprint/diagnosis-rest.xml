@@ -35,6 +35,11 @@
                 <description>Finde code By ParentID</description>
                 <to uri="bean:diagnosisBeanService?method=getCodeByPid(${header.parentId})"/>
             </get>
+            <!--通过诊断的内容查询相应的诊断信息-->
+            <get id="route-getCodeByContent" outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getCodeByContent">
+                <description>Finde code By Content</description>
+                <to uri="bean:diagnosisBeanService?method=getCodeByContent(${header.content})"/>
+            </get>
             <post id="route-addDiagnosis" type="com.kalix.jdyy.diagnosis.entities.DiagnosisBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">
                 <description>Create a Diagnosis</description>

@@ -182,6 +182,20 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
         }
     }
 
+    /**
+     *
+     * @param content 术式的内容
+     * @return 相应的术式信息
+     */
+    @Override
+    public JsonData getCodeByContent(String content) {
+        List<SurgicalBean> list = dao.find("select s from SurgicalBean s where s.content=?1", content);
+        JsonData jsondata = new JsonData();
+        jsondata.setData(list);
+        jsondata.setTotalCount((long)list.size());
+        return jsondata;
+    }
+
     // 用递归计数获取第几级数据
     private Integer getLevelByPid(long pid, Integer num) {
         if (pid == -1) {

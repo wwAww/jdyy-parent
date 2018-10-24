@@ -169,6 +169,21 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
             }
         }
     }
+
+    /**
+     *
+     * @param content 诊断的内容
+     * @return 通过诊断的内容查询相应的诊断信息
+     */
+    @Override
+    public JsonData getCodeByContent(String content) {
+        List<DiagnosisBean> list = dao.find("select d from DiagnosisBean d where d.content=?1", content);
+        JsonData jsondata = new JsonData();
+        jsondata.setData(list);
+        jsondata.setTotalCount((long)list.size());
+        return jsondata;
+    }
+
     // 用递归计数获取第几级数据
     private Integer getLevelByPid(long pid, Integer num) {
         if (pid == -1) {

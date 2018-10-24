@@ -14,9 +14,9 @@ public class VisitBean extends PersistentEntity {
     private Integer age;// 年龄
     private String diagnosis;// 诊断
     private String surgical;// 术式
-    private Integer diagnosisCode;// 诊断代码
-    private Integer surgicalCode;// 术式代码
-    private Integer AOcode;// AO代码
+    private String diagnosisCode;// 诊断代码
+    private String surgicalCode;// 术式代码
+    private String AOcode;// AO代码
     private String operationDate;// 手术日期
     private String periodization;// 分期
     private String parting;// 分型
@@ -39,27 +39,27 @@ public class VisitBean extends PersistentEntity {
         this.age = age;
     }
 
-    public Integer getDiagnosisCode() {
+    public String getDiagnosisCode() {
         return diagnosisCode;
     }
 
-    public void setDiagnosisCode(Integer diagnosisCode) {
+    public void setDiagnosisCode(String diagnosisCode) {
         this.diagnosisCode = diagnosisCode;
     }
 
-    public Integer getSurgicalCode() {
+    public String getSurgicalCode() {
         return surgicalCode;
     }
 
-    public void setSurgicalCode(Integer surgicalCode) {
+    public void setSurgicalCode(String surgicalCode) {
         this.surgicalCode = surgicalCode;
     }
 
-    public Integer getAOcode() {
+    public String getAOcode() {
         return AOcode;
     }
 
-    public void setAOcode(Integer AOcode) {
+    public void setAOcode(String AOcode) {
         this.AOcode = AOcode;
     }
 
