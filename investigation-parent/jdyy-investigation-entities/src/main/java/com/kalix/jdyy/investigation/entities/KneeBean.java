@@ -19,7 +19,7 @@ public class KneeBean extends PersistentEntity {
     private Integer age;// 年龄
     private String telephonePerson;// 电话
     private String address;// 地址
-    private Integer hospitalNumber;// 住院号
+    private String hospitalNumber;// 住院号
     //    调查信息
     private Integer orderNumber;// 研究序号
     private String date;// 日期
@@ -272,11 +272,11 @@ public class KneeBean extends PersistentEntity {
         this.address = address;
     }
 
-    public Integer getHospitalNumber() {
+    public String getHospitalNumber() {
         return hospitalNumber;
     }
 
-    public void setHospitalNumber(Integer hospitalNumber) {
+    public void setHospitalNumber(String hospitalNumber) {
         this.hospitalNumber = hospitalNumber;
     }
 

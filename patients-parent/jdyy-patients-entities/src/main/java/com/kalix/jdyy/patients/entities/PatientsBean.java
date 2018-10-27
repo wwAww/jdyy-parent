@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class PatientsBean extends PersistentEntity {
     private String name;// 姓名
     private String sex;// 性别
-    private Integer age;// 年龄
+    private String age;// 年龄
     private String brith;// 出生日期
     private String idCard;// 身份证号
     private String bedNumber;// 床位号
@@ -59,11 +59,11 @@ public class PatientsBean extends PersistentEntity {
         this.sex = sex;
     }
 
-    public Integer getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
