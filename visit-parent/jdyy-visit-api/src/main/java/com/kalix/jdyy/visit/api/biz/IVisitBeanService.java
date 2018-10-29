@@ -14,4 +14,7 @@ public interface IVisitBeanService extends IBizService<VisitBean> {
 
     // 根据UserId获取该用户就诊信息
     JsonData getAllByUserId(long userId);
+
+    // 根据Pid查询Pname
+    JsonData getPnameByPid(Integer page,Integer limit);
 }
