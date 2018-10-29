@@ -1,13 +1,12 @@
-package com.kalix.jdyy.visit.entities;
+package com.kalix.jdyy.visit.api.dto;
 
-import com.kalix.framework.core.api.persistence.PersistentEntity;
-
-import javax.persistence.Entity;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "jdyy_visit")
-public class VisitBean extends PersistentEntity {
+/**
+ * @author jiangbiao
+ * @create 2018-10-29 上午 9:21
+ * @desc 病员基本信息与就诊信息的整合DTO
+ **/
+public class VisitPatientsDTO {
+    private long id;
     private long pid;// 序号-患者的id
     private String diagnosis;// 诊断
     private String surgical;// 术式
@@ -19,46 +18,14 @@ public class VisitBean extends PersistentEntity {
     private String parting;// 分型
     private String xid;// id（未知）
     private String photo;// 图片
+    private String pname;// 患者姓名
 
-
-    public String getDiagnosisCode() {
-        return diagnosisCode;
+    public long getId() {
+        return id;
     }
 
-    public void setDiagnosisCode(String diagnosisCode) {
-        this.diagnosisCode = diagnosisCode;
-    }
-
-    public String getSurgicalCode() {
-        return surgicalCode;
-    }
-
-    public void setSurgicalCode(String surgicalCode) {
-        this.surgicalCode = surgicalCode;
-    }
-
-    public String getAOcode() {
-        return AOcode;
-    }
-
-    public void setAOcode(String AOcode) {
-        this.AOcode = AOcode;
-    }
-
-    public String getParting() {
-        return parting;
-    }
-
-    public void setParting(String parting) {
-        this.parting = parting;
-    }
-
-    public String getXid() {
-        return xid;
-    }
-
-    public void setXid(String xid) {
-        this.xid = xid;
+    public void setId(long id) {
+        this.id = id;
     }
 
     public long getPid() {
@@ -85,6 +52,30 @@ public class VisitBean extends PersistentEntity {
         this.surgical = surgical;
     }
 
+    public String getDiagnosisCode() {
+        return diagnosisCode;
+    }
+
+    public void setDiagnosisCode(String diagnosisCode) {
+        this.diagnosisCode = diagnosisCode;
+    }
+
+    public String getSurgicalCode() {
+        return surgicalCode;
+    }
+
+    public void setSurgicalCode(String surgicalCode) {
+        this.surgicalCode = surgicalCode;
+    }
+
+    public String getAOcode() {
+        return AOcode;
+    }
+
+    public void setAOcode(String AOcode) {
+        this.AOcode = AOcode;
+    }
+
     public String getOperationDate() {
         return operationDate;
     }
@@ -101,11 +92,35 @@ public class VisitBean extends PersistentEntity {
         this.periodization = periodization;
     }
 
+    public String getParting() {
+        return parting;
+    }
+
+    public void setParting(String parting) {
+        this.parting = parting;
+    }
+
+    public String getXid() {
+        return xid;
+    }
+
+    public void setXid(String xid) {
+        this.xid = xid;
+    }
+
     public String getPhoto() {
         return photo;
     }
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    public String getPname() {
+        return pname;
+    }
+
+    public void setPname(String pname) {
+        this.pname = pname;
     }
 }

@@ -35,6 +35,12 @@
                 <description>Find Pienums by VisitDTO</description>
                 <to uri="bean:IVisitBeanService?method=getSurData(${header.surDate},${header.surStartAge},${header.surEndAge},${header.surRadio})"/>
             </get>
+            <!--根据Pid查询Pname-->
+            <get id="route-getPnameByPid"
+                 outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getPnameByPid">
+                <description>Find Pname by Pid</description>
+                <to uri="bean:IVisitBeanService?method=getPnameByPid(${header.page},${header.limit})"/>
+            </get>
 
             <post id="route-addJdyyVisits" type="com.kalix.jdyy.visit.entities.VisitBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">
