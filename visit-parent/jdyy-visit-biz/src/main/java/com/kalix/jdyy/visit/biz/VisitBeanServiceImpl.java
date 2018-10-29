@@ -2,12 +2,6 @@ package com.kalix.jdyy.visit.biz;
 
 import com.kalix.framework.core.api.persistence.JsonData;
 import com.kalix.framework.core.impl.biz.GenericBizServiceImpl;
-import com.kalix.jdyy.diagnosis.api.dao.IDiagnosisBeanDao;
-import com.kalix.jdyy.diagnosis.api.dto.DiagnosisDTO;
-import com.kalix.jdyy.diagnosis.entities.DiagnosisBean;
-import com.kalix.jdyy.patients.api.dao.IPatientsBeanDao;
-import com.kalix.jdyy.patients.entities.PatientsBean;
-import com.kalix.jdyy.surgical.api.dao.ISurgicalBeanDao;
 import com.kalix.jdyy.visit.api.biz.IVisitBeanService;
 import com.kalix.jdyy.visit.api.dao.IVisitBeanDao;
 import com.kalix.jdyy.visit.api.dto.pieDataDTO;
