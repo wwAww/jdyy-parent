@@ -28,19 +28,17 @@ public class VisitBeanServiceImpl extends GenericBizServiceImpl<IVisitBeanDao, V
      */
     @Override
     public JsonData getDiaData(String diaDate, Integer diaStartAge, Integer diaEndAge, String diaRadio) {
-        String sql = "SELECT d.content as name,count(v) as value FROM jdyy_diagnosis d,jdyy_visit v " +
-                "WHERE d.parentId=-1 and substring(d.code,1,2)=substring(v.diagnosisCode,1,2)";
+        String sql = "SELECT d.content as name,count(v) as value FROM jdyy_diagnosis d,jdyy_visit v,jdyy_patients p " +
+                "WHERE d.parentId=-1 and substring(d.code,1,2)=substring(v.diagnosisCode,1,2) and v.pid = p.id";
         if (diaDate != null && !diaDate.isEmpty()) {
             sql += " and v.operationDate like '" + diaDate + "%'";
         }
-//        if (diaStartAge != null && diaEndAge != null) {
-//            sql += " and p.age between " + diaStartAge + "and" + diaEndAge;
-//            sql += " and v.pid = p.id";
-//        }
-//        if (diaRadio != null && !diaRadio.isEmpty()) {
-//            sql += " and p,sex = " + diaRadio;
-//            sql += " and v.pid = p.id";
-//        }
+        if (diaStartAge != null && diaEndAge != null) {
+            sql += " and p.age between " + diaStartAge + " and " + diaEndAge;
+        }
+        if (diaRadio != null && !diaRadio.isEmpty()) {
+            sql += " and p.sex = '" + diaRadio + "'";
+        }
         sql += " GROUP BY d.content";
         List<pieDataDTO> list = dao.findByNativeSql(sql,pieDataDTO.class);
         JsonData jsondata = new JsonData();
@@ -59,19 +57,17 @@ public class VisitBeanServiceImpl extends GenericBizServiceImpl<IVisitBeanDao, V
      */
     @Override
     public JsonData getSurData(String surDate, Integer surStartAge, Integer surEndAge, String surRadio) {
-        String sql = "SELECT s.content as name,count(v) as value FROM jdyy_surgical s,jdyy_visit v " +
-                "WHERE s.parentId=-1 and substring(s.code,1,2)=substring(v.surgicalCode,1,2)";
+        String sql = "SELECT s.content as name,count(v) as value FROM jdyy_surgical s,jdyy_visit v,jdyy_patients p " +
+                "WHERE s.parentId=-1 and substring(s.code,1,2)=substring(v.surgicalCode,1,2) and v.pid = p.id";
         if (surDate != null && !surDate.isEmpty()) {
             sql += " and v.operationDate like '" + surDate + "%'";
         }
-//        if (diaStartAge != null && diaEndAge != null) {
-//            sql += " and p.age between " + diaStartAge + "and" + diaEndAge;
-//            sql += " and v.pid = p.id";
-//        }
-//        if (diaRadio != null && !diaRadio.isEmpty()) {
-//            sql += " and p,sex = " + diaRadio;
-//            sql += " and v.pid = p.id";
-//        }
+        if (surStartAge != null && surEndAge != null) {
+            sql += " and p.age between " + surStartAge + " and " + surEndAge;
+        }
+        if (surRadio != null && !surRadio.isEmpty()) {
+            sql += " and p.sex = '" + surRadio + "'";
+        }
         sql += " GROUP BY s.content";
         List<pieDataDTO> list = dao.findByNativeSql(sql,pieDataDTO.class);
         JsonData jsondata = new JsonData();
