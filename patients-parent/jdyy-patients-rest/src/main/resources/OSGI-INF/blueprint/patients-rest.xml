@@ -23,6 +23,11 @@
                 <description>Find Patients by Select</description>
                 <to uri="bean:IPatientsBeanService?method=getDataBySelect"/>
             </get>
+            <!--获取病员信息（以el-autocomplete选择器需要的形式返回数据）-->
+            <get id="route-getPatientsByAutocomplete" outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getPatientsByAutocomplete">
+                <description>Find Patients by Autocomplete</description>
+                <to uri="bean:IPatientsBeanService?method=getPatientsByAutocomplete"/>
+            </get>
 
             <post id="route-addJdyyPatients" type="com.kalix.jdyy.patients.entities.PatientsBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">
