@@ -37,7 +37,7 @@
             <!--通过术式的内容查询相应的诊断信息-->
             <get id="route-getCodeByContent" outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getCodeByContent">
                 <description>Finde code By Content</description>
-                <to uri="bean:surgicalBeanService?method=getCodeByContent(${header.content})"/>
+                <to uri="bean:surgicalBeanService?method=getCodeByContent(${header.code})"/>
             </get>
             <post id="route-addSurgical" type="com.kalix.jdyy.surgical.entities.SurgicalBean"
                   outType="com.kalix.framework.core.api.persistence.JsonStatus">

@@ -17,5 +17,5 @@ public interface IDiagnosisBeanService extends IBizService<DiagnosisBean> {
     // 计算当前父节点下的节点的最大代码（code）返回处理后的新code
     String getCodeByPid(long pid);
     // 通过诊断的内容查询相应的诊断信息
-    JsonData getCodeByContent(String content);
+    JsonData getCodeByContent(String code);
 }

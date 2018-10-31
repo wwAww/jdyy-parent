@@ -97,7 +97,7 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
         List<SurgicalDTO> list = new ArrayList<>();
         for(SurgicalBean one : listParents) {
             SurgicalDTO sd = new SurgicalDTO();
-            sd.setValue(one.getContent());
+            sd.setValue(one.getCode());
             sd.setLabel(one.getContent());
             sd.setChildren(getSurgicalChilden(one, qlist));
             list.add(sd);
@@ -184,12 +184,12 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
 
     /**
      *
-     * @param content 术式的内容
+     * @param code 术式的代码
      * @return 相应的术式信息
      */
     @Override
-    public JsonData getCodeByContent(String content) {
-        List<SurgicalBean> list = dao.find("select s from SurgicalBean s where s.content=?1", content);
+    public JsonData getCodeByContent(String code) {
+        List<SurgicalBean> list = dao.find("select s from SurgicalBean s where s.code=?1", code);
         JsonData jsondata = new JsonData();
         jsondata.setData(list);
         jsondata.setTotalCount((long)list.size());
@@ -227,7 +227,7 @@ public class SurgicalBeanServiceImpl extends GenericBizServiceImpl<ISurgicalBean
         for (SurgicalBean db : qlist) {
             if (one.getId() == db.getParentId()) {
                 SurgicalDTO sd = new SurgicalDTO();
-                sd.setValue(db.getContent());
+                sd.setValue(db.getCode());
                 sd.setLabel(db.getContent());
                 List<SurgicalDTO> children = getSurgicalChilden(db, qlist);
                 if (children != null && !children.isEmpty()) {

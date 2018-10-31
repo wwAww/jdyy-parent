@@ -99,7 +99,7 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
         List<DiagnosisDTO> list = new ArrayList<>();
         for (DiagnosisBean one : listParents) {
             DiagnosisDTO dd = new DiagnosisDTO();
-            dd.setValue(one.getContent());
+            dd.setValue(one.getCode());
             dd.setLabel(one.getContent());
             dd.setChildren(getDiagnosisChilden(one, qlist));
             list.add(dd);
@@ -172,12 +172,12 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
 
     /**
      *
-     * @param content 诊断的内容
+     * @param code 诊断的内容
      * @return 通过诊断的内容查询相应的诊断信息
      */
     @Override
-    public JsonData getCodeByContent(String content) {
-        List<DiagnosisBean> list = dao.find("select d from DiagnosisBean d where d.content=?1", content);
+    public JsonData getCodeByContent(String code) {
+        List<DiagnosisBean> list = dao.find("select d from DiagnosisBean d where d.code=?1", code);
         JsonData jsondata = new JsonData();
         jsondata.setData(list);
         jsondata.setTotalCount((long)list.size());
@@ -214,7 +214,7 @@ public class DiagnosisBeanServiceImpl extends GenericBizServiceImpl<IDiagnosisBe
         for (DiagnosisBean db : qlist) {
             if (one.getId() == db.getParentId()) {
                 DiagnosisDTO dd = new DiagnosisDTO();
-                dd.setValue(db.getContent());
+                dd.setValue(db.getCode());
                 dd.setLabel(db.getContent());
                 List<DiagnosisDTO> children = getDiagnosisChilden(db, qlist);
                 if (children != null && !children.isEmpty()) {
