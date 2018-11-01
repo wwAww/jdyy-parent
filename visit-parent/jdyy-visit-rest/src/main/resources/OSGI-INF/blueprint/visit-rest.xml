@@ -39,7 +39,7 @@
             <get id="route-getPnameByPid"
                  outType="com.kalix.framework.core.api.persistence.JsonData" uri="/getPnameByPid">
                 <description>Find Pname by Pid</description>
-                <to uri="bean:IVisitBeanService?method=getPnameByPid(${header.page},${header.limit})"/>
+                <to uri="bean:IVisitBeanService?method=getPnameByPid(${header.page},${header.limit},${header.jsonStr})"/>
             </get>
 
             <post id="route-addJdyyVisits" type="com.kalix.jdyy.visit.entities.VisitBean"
