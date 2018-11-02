@@ -7,8 +7,11 @@ import com.kalix.jdyy.visit.api.dao.IVisitBeanDao;
 import com.kalix.jdyy.visit.api.dto.VisitPatientsDTO;
 import com.kalix.jdyy.visit.api.dto.pieDataDTO;
 import com.kalix.jdyy.visit.entities.VisitBean;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import javax.persistence.EntityManager;
+import java.util.Iterator;
 import java.util.List;
 
 public class VisitBeanServiceImpl extends GenericBizServiceImpl<IVisitBeanDao, VisitBean> implements IVisitBeanService {
@@ -95,9 +98,15 @@ public class VisitBeanServiceImpl extends GenericBizServiceImpl<IVisitBeanDao, V
      * @return 多表联查 根据Pid返回带Pname的list
      */
     @Override
-    public JsonData getPnameByPid(Integer page,Integer limit) {
+    public JsonData getPnameByPid(Integer page,Integer limit, String jsonStr) {
         String sql = "select v.id,v.pid,v.diagnosis,v.surgical,v.diagnosisCode,v.surgicalCode,v.AOcode,v.operationDate,v.periodization,v.parting,v.xid,v.photo,p.name as pname " +
                 "from jdyy_visit v,jdyy_patients p where v.pid=p.id";
+        if (jsonStr != null && !jsonStr.isEmpty()) {
+            JSONObject obj = new JSONObject(jsonStr);
+            for(String str:obj.keySet()){
+                sql += " and p." + str.replace("%","") + " like '%" + obj.get(str) + "%'";
+            }
+        }
         List<VisitPatientsDTO> vplist = dao.findByNativeSql(sql,VisitPatientsDTO.class);
         List<VisitPatientsDTO> list = vplist.subList(page*limit-limit, limit*page>vplist.size()?vplist.size():limit*page);
         JsonData jsondata = new JsonData();
